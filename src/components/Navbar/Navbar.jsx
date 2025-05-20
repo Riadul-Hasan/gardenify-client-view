@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from "../../assets/logo-transparent.png"
+import { Link } from 'react-router';
 
 const Navbar = () => {
     return (
@@ -31,6 +32,7 @@ const Navbar = () => {
                     <li><a>Home</a></li>
                     <li><a> Explore Gardeners</a></li>
                     <li><a>Browse Tips</a></li>
+                    <Link to="/register">Register</Link>
                     {/* <li>
                         <details>
                             <summary>Parent</summary>

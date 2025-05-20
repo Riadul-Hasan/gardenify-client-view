@@ -1,0 +1,107 @@
+import React, { use } from 'react';
+import { AuthContext } from '../provider/AuthProvider';
+import { Link } from 'react-router';
+import Swal from 'sweetalert2';
+
+const Register = () => {
+    const { createUser } = use(AuthContext)
+
+    const handleRegister = (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+        const formData = new FormData(form)
+        const { email, password, ...userProfile } = Object.fromEntries(formData.entries())
+        console.log(email, password, userProfile)
+
+
+        // if (password.length < 6) {
+        //     setError("Password length should be 6 char or more...")
+        // }
+
+        // if (!/^(?=.*[A-Z]).*$/.test(password)) {
+        //     setError("Password must have an Uppercase letter")
+        //     return;
+        // }
+
+        // if (!/^(?=.*[a-z]).*$/.test(password)) {
+        //     setError("Password must have an Lowercase letter")
+        //     return;
+        // }
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user)
+                // profile info in mongodb
+                fetch('http://localhost:3000/users', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userProfile)
+
+                })
+                    .then(result => result.json())
+                    .then(data => {
+                        if (data.insertedId) {
+                            Swal.fire({
+                                title: "Account Created Successfully",
+                                icon: "success",
+                                draggable: true
+                            });
+                        }
+                    })
+
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+    }
+    return (
+        <div className="bg-gradient-to-br from-green-50 to-cyan-100 min-h-[calc(100vh-320px)]  flex flex-col items-center justify-center px-4">
+
+            <div className="card  bg-white rounded-2xl  w-full max-w-sm shrink-0  mx-auto mt-20 mb-20 ">
+                <div className='p-4 rounded-t-2xl bg-gradient-to-r from-blue-500 to-cyan-600'>
+                    <h2 className='text-2xl font-bold text-center text-white'>Create Your Account</h2>
+                    <p className='text-sm text-center text-white'>Join Us Today</p>
+                </div>
+                <form onSubmit={handleRegister} className="card-body">
+                    <fieldset className="fieldset ">
+                        <label className="label font-semibold text-gray-500 ">Your Name</label>
+                        <input name='name' required type="text" className="input mb-2" placeholder="Name" />
+                        {/* email */}
+                        <label className="label font-semibold text-gray-500">Email</label>
+                        <input name='email' required type="email" className="input mb-2" placeholder="Email" />
+                        {/* photo */}
+                        <label className="label font-semibold text-gray-500 ">Photo Url</label>
+                        <input name='photoUrl' required type="text" className="input mb-2" placeholder="Photo url" />
+                        {/* password */}
+                        <label className="label font-semibold text-gray-500 ">Password</label>
+                        <input name='password' required type="password" className="input mb-2" placeholder="Password" />
+                        {/* {
+                            error && <p className='text-xs font-semibold text-red-600'>{error}</p>
+                        } */}
+
+                        <button className="btn bg-gradient-to-r from-blue-500 to-cyan-600 text-white mt-4">Create Account</button>
+                    </fieldset>
+                </form>
+
+                <div className="divider text-gray-400 text-xs px-4">Or Register With</div>
+
+                {/* 
+                <div className='text-center mb-4'>
+
+                    <button className="btn w-11/12 mx-auto p-2 border bg-white border-gray-200 hover:bg-gray-50 text-gray-700 flex items-center"><FcGoogle />
+                        Sign In with Google</button>
+                </div> */}
+
+                <p className='text-center font-semibold pb-4'>Already have an account? <Link to="/login" className='text-red-500 font-semibold'>Login Now</Link></p>
+            </div>
+
+
+
+        </div>
+    );
+};
+
+export default Register;
