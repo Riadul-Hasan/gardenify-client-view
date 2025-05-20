@@ -1,9 +1,10 @@
 import React, { use } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
-    const { signInUser } = use(AuthContext)
+    const { signInUser, setUser } = use(AuthContext)
 
     const handleSignIn = (e) => {
         e.preventDefault();
@@ -14,6 +15,12 @@ const Login = () => {
         signInUser(email, password)
             .then(result => {
                 console.log(result.user)
+                setUser(result.user)
+                Swal.fire({
+                    title: "Welcome back! Login Success",
+                    icon: "success",
+                    draggable: true
+                });
             })
             .catch(error => {
                 console.log(error)
@@ -26,6 +33,7 @@ const Login = () => {
 
             <div className="card bg-white rounded-2xl p-4 w-full max-w-sm shrink-0  mx-auto mt-20 mb-10">
                 <h2 className='text-2xl font-bold text-center pt-4'>Welcome Back</h2>
+
                 <p className='text-center text-sm py-2'>Login to access your account</p>
                 <form onSubmit={handleSignIn} className="card-body">
                     <fieldset className="fieldset">

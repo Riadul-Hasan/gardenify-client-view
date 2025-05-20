@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { use } from 'react';
 import Logo from "../../assets/logo-transparent.png"
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Navbar = () => {
+
+    const { user, logOut } = use(AuthContext)
+    const navigate = useNavigate()
+    console.log(user)
+
+    const handleLogout = () => [
+        logOut()
+            .then(() => {
+                alert("Logged Out")
+                navigate("/login")
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    ]
     return (
         <div className="navbar bg-base-300 container mx-auto">
             <div className="navbar-start">
@@ -29,10 +45,18 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex ">
                 <ul className="menu menu-horizontal px-1 space-x-6">
+                    {
+                        user && <p className='text-blue-700'>{user.email}</p>
+                    }
                     <NavLink to="/"><li>Home</li></NavLink>
                     <NavLink to="/explore"><li> Explore Gardeners</li></NavLink>
                     <NavLink to="/browseTips"><li>Browse Tips</li></NavLink>
-                    <NavLink to="/login"><li>Login</li></NavLink>
+
+                    <div>
+                        {
+                            user ? <button onClick={handleLogout}>Logut</button> : <NavLink to="/login"><li>Login</li></NavLink>
+                        }
+                    </div>
 
                     <Link to="/register">Register</Link>
                     {/* <li>
