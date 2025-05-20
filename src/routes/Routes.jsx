@@ -5,6 +5,9 @@ import {
 import RootLayout from "../layout/RootLayout";
 import Home from "../components/Home";
 import Register from "../pages/Register";
+import ExploreGardeners from "../pages/ExploreGardeners";
+import BrowseTips from "../pages/BrowseTips";
+import Login from "../pages/Login";
 
 export const router = createBrowserRouter([
     {
@@ -17,8 +20,20 @@ export const router = createBrowserRouter([
                 Component: Home
             },
             {
+                path: "/explore",
+                Component: ExploreGardeners
+            },
+            {
+                path: "/browseTips",
+                Component: BrowseTips
+            },
+            {
                 path: "/register",
                 Component: Register
+            },
+            {
+                path: "/login",
+                Component: Login
             }
 
         ]

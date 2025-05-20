@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from "../../assets/logo-transparent.png"
-import { Link } from 'react-router';
+import { Link, NavLink } from 'react-router';
 
 const Navbar = () => {
     return (
@@ -27,11 +27,13 @@ const Navbar = () => {
                 {/* <a className="btn btn-ghost text-xl text-green-600">Gardenify</a> */}
                 <img className='w-16' src={Logo} alt="" />
             </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    <li><a>Home</a></li>
-                    <li><a> Explore Gardeners</a></li>
-                    <li><a>Browse Tips</a></li>
+            <div className="navbar-center hidden lg:flex ">
+                <ul className="menu menu-horizontal px-1 space-x-6">
+                    <NavLink to="/"><li>Home</li></NavLink>
+                    <NavLink to="/explore"><li> Explore Gardeners</li></NavLink>
+                    <NavLink to="/browseTips"><li>Browse Tips</li></NavLink>
+                    <NavLink to="/login"><li>Login</li></NavLink>
+
                     <Link to="/register">Register</Link>
                     {/* <li>
                         <details>
