@@ -1,10 +1,27 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
-    const { signInUser, setUser } = use(AuthContext)
+    const { signInUser, setUser, googlePopUp } = use(AuthContext)
+    const navigate = useNavigate()
+
+
+    const handleGoogleSignIn = () => {
+        googlePopUp()
+            .then(result => {
+                const userNow = result.user;
+                Swal.fire({
+                    title: "Login Successfull",
+                    icon: "success",
+                    draggable: true
+                });
+                navigate("/")
+                setUser(userNow)
+            })
+    }
 
     const handleSignIn = (e) => {
         e.preventDefault();
@@ -57,11 +74,11 @@ const Login = () => {
                 <div className="divider text-gray-400 text-xs p-4">OR</div>
 
 
-                {/* <div className='text-center mb-4'>
+                <div className='text-center mb-4'>
 
                     <button onClick={handleGoogleSignIn} className="btn w-11/12 mx-auto p-2 border bg-white border-gray-200 hover:bg-gray-50 text-gray-700 flex items-center"><FcGoogle />
                         Sign In with Google</button>
-                </div> */}
+                </div>
                 <p className='text-center font-semibold pb-4'>Dont have an account? <Link to="/register" className='text-red-500'>Register</Link></p>
             </div>
 

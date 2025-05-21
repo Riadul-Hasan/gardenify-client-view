@@ -1,11 +1,29 @@
 import React, { use, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
+import { FcGoogle } from 'react-icons/fc';
 
 const Register = () => {
-    const { createUser, updateUser, setUser } = use(AuthContext)
+    const { createUser, updateUser, setUser, googlePopUp } = use(AuthContext)
+    const navigate = useNavigate()
     const [error, setError] = useState("")
+
+
+    const handleGoogleSignIn = () => {
+        googlePopUp()
+            .then(() => {
+                Swal.fire({
+                    title: "Sign In Success",
+                    icon: "success",
+                    draggable: true
+                });
+                navigate("/")
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -34,6 +52,9 @@ const Register = () => {
             setError("Password must have an Lowercase letter")
             return;
         }
+
+
+
         createUser(email, password)
             .then(result => {
                 const user = result.user
@@ -102,12 +123,12 @@ const Register = () => {
 
                 <div className="divider text-gray-400 text-xs px-4">Or Register With</div>
 
-                {/* 
+
                 <div className='text-center mb-4'>
 
-                    <button className="btn w-11/12 mx-auto p-2 border bg-white border-gray-200 hover:bg-gray-50 text-gray-700 flex items-center"><FcGoogle />
+                    <button onClick={handleGoogleSignIn} className="btn w-11/12 mx-auto p-2 border bg-white border-gray-200 hover:bg-gray-50 text-gray-700 flex items-center"><FcGoogle />
                         Sign In with Google</button>
-                </div> */}
+                </div>
 
                 <p className='text-center font-semibold pb-4'>Already have an account? <Link to="/login" className='text-red-500 font-semibold'>Login Now</Link></p>
             </div>
