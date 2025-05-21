@@ -35,9 +35,9 @@ const Register = () => {
 
 
 
-        // if (password.length < 6) {
-        //     setError("Password length should be 6 char or more...")
-        // }
+        if (password.length < 8) {
+            setError("Password length should be 6 char or more...")
+        }
         if (!/[^A-Za-z0-9]/.test(password)) {
             setError("Password must have at least one special character");
             return;
@@ -87,8 +87,14 @@ const Register = () => {
                     })
 
             })
-            .catch(error => {
-                console.log(error)
+            .catch(() => {
+                // console.log(error)
+                Swal.fire({
+                    icon: "Register Failed! Try again",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+
+                });
             })
 
     }
