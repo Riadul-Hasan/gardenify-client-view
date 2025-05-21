@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 
 const ShareGardenTip = () => {
     const { user } = use(AuthContext)
+
     const handleAddTips = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -105,13 +106,13 @@ const ShareGardenTip = () => {
                         <fieldset className="fieldset bg-base-200 border-black rounded-box  border p-4">
 
                             <label className="label">Email</label>
-                            <input type="email" className="input w-full" name='email' defaultValue={user.email} />
+                            <input type="email" className="input w-full" readOnly name='email' defaultValue={user.email} />
                         </fieldset>
 
                         <fieldset className="fieldset bg-base-200 border-black rounded-box  border p-4">
 
                             <label className="label">Name</label>
-                            <input type="text" className="input w-full" name='name' defaultValue={user.displayName} />
+                            <input type="text" className="input w-full" readOnly name='name' defaultValue={user.displayName} />
                         </fieldset>
                     </div>
 
