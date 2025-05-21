@@ -11,6 +11,7 @@ import Login from "../pages/Login";
 import ShareGardenTip from "../pages/ShareGardenTip";
 import PrivateRoute from "../provider/PrivateRoute";
 import MyTips from "../pages/MyTips";
+import TipsDetails from "../pages/TipsDetails";
 
 export const router = createBrowserRouter([
     {
@@ -48,6 +49,11 @@ export const router = createBrowserRouter([
             {
                 path: '/myTips',
                 element: <PrivateRoute><MyTips></MyTips></PrivateRoute>
+            },
+            {
+                path: "/shareTips/:id",
+                loader: ({ params }) => fetch(`http://localhost:3000/shareTips/${params.id}`),
+                element: <PrivateRoute><TipsDetails></TipsDetails></PrivateRoute>
             }
 
 

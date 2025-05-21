@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 import BrowseCard from './BrowseCard';
 
 const BrowseTips = () => {
@@ -15,11 +15,7 @@ const BrowseTips = () => {
                         {/* head */}
                         <thead>
                             <tr>
-                                {/* <th>
-                                    <label>
-                                        <input type="checkbox" className="checkbox" />
-                                    </label>
-                                </th> */}
+
                                 <th>Image </th>
                                 <th>Title </th>
                                 <th>Category</th>
@@ -46,7 +42,6 @@ const BrowseTips = () => {
 
                                                 <div>
                                                     <div className="font-bold">{tips.title}</div>
-                                                    {/* <div className="text-sm opacity-50">United States</div> */}
                                                 </div>
                                             </div>
                                         </td>
@@ -55,7 +50,7 @@ const BrowseTips = () => {
                                         </td>
 
                                         <th>
-                                            <button className="btn btn-ghost btn-xs">Details</button>
+                                            <Link to={`/shareTips/${tips._id}`} className="btn btn-ghost btn-xs">Details</Link>
                                         </th>
                                     </tr>)
                             }
