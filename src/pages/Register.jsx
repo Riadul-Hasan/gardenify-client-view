@@ -1,37 +1,51 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 
 const Register = () => {
-    const { createUser } = use(AuthContext)
+    const { createUser, updateUser, setUser } = use(AuthContext)
+    const [error, setError] = useState("")
 
     const handleRegister = (e) => {
         e.preventDefault();
 
         const form = e.target;
         const formData = new FormData(form)
-        const { email, password, ...userProfile } = Object.fromEntries(formData.entries())
-        console.log(email, password, userProfile)
+        const { email, password, photoUrl, ...userProfile } = Object.fromEntries(formData.entries())
+        console.log(email, password, photoUrl, userProfile)
+
 
 
         // if (password.length < 6) {
         //     setError("Password length should be 6 char or more...")
         // }
+        if (!/[^A-Za-z0-9]/.test(password)) {
+            setError("Password must have at least one special character");
+            return;
+        }
 
-        // if (!/^(?=.*[A-Z]).*$/.test(password)) {
-        //     setError("Password must have an Uppercase letter")
-        //     return;
-        // }
+        if (!/^(?=.*[A-Z]).*$/.test(password)) {
+            setError("Password must have an Uppercase letter")
+            return;
+        }
 
-        // if (!/^(?=.*[a-z]).*$/.test(password)) {
-        //     setError("Password must have an Lowercase letter")
-        //     return;
-        // }
+        if (!/^(?=.*[a-z]).*$/.test(password)) {
+            setError("Password must have an Lowercase letter")
+            return;
+        }
         createUser(email, password)
             .then(result => {
-                console.log(result.user)
+                const user = result.user
                 // profile info in mongodb
+                updateUser({ displayName: name, photoURL: photoUrl })
+                    .then(() => {
+                        setUser({ ...user, displayName: name, photoURL: photoUrl })
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        setUser(user)
+                    })
                 fetch('http://localhost:3000/users', {
                     method: "POST",
                     headers: {
@@ -78,9 +92,9 @@ const Register = () => {
                         {/* password */}
                         <label className="label font-semibold text-gray-500 ">Password</label>
                         <input name='password' required type="password" className="input mb-2" placeholder="Password" />
-                        {/* {
+                        {
                             error && <p className='text-xs font-semibold text-red-600'>{error}</p>
-                        } */}
+                        }
 
                         <button className="btn bg-gradient-to-r from-blue-500 to-cyan-600 text-white mt-4">Create Account</button>
                     </fieldset>
