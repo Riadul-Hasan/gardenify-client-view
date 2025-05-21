@@ -12,7 +12,7 @@ const Register = () => {
 
         const form = e.target;
         const formData = new FormData(form)
-        const { email, password, photoUrl, ...userProfile } = Object.fromEntries(formData.entries())
+        const { email, password, name, photoUrl, ...userProfile } = Object.fromEntries(formData.entries())
         console.log(email, password, photoUrl, userProfile)
 
 
