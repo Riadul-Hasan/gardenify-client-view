@@ -1,20 +1,10 @@
 import React from 'react';
+import { FaLocationDot, FaRegStar } from 'react-icons/fa6';
 
 const FeatureCard = ({ feature }) => {
-    const { profileImage, name } = feature;
+    const { profileImage, name, specialty, location, bio } = feature;
     return (
-        // <div className="card bg-base-100  shadow-sm">
-        //     <figure>
-        //         <img
-        //             src={profileImage}
-        //             alt="Shoes" />
-        //     </figure>
-        //     <div className="card-body">
-        //         <h2 className="card-title">{name}</h2>
-        //         <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
 
-        //     </div>
-        // </div>
         <div className="card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg  border border-gray-100">
 
             <figure className="relative pt-[65%] overflow-hidden">
@@ -28,8 +18,10 @@ const FeatureCard = ({ feature }) => {
 
             <div className="card-body p-5">
                 <h2 className="card-title text-xl font-bold text-gray-800 mb-2">{name}</h2>
-                <p className="text-gray-600 mb-4 line-clamp-2">
-                    A card component has a figure, a body part, and inside body there are title and actions parts
+                <p className='flex items-center gap-3'><FaRegStar />{specialty}</p>
+                <p className='flex  items-center gap-3'><FaLocationDot />{location}</p>
+                <p className="text-cyan-800 mb-4 line-clamp-2">
+                    {bio}
                 </p>
 
                 <div className="card-actions justify-end">

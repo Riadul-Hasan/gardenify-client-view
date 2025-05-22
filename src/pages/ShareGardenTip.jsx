@@ -36,7 +36,7 @@ const ShareGardenTip = () => {
     }
     return (
         <div className='py-20 bg-green-50'>
-            <div className='py-10 container mx-auto '>
+            <div className='py-10 w-4/9 mx-auto '>
 
                 <div className='text-center py-8'>
                     <h2 className='text-4xl font-semibold py-2 text-green-800'>Share Tip</h2>
@@ -45,7 +45,7 @@ const ShareGardenTip = () => {
 
 
 
-                <form onSubmit={handleAddTips} className='bg-white'>
+                <form onSubmit={handleAddTips} className='bg-white p-6 rounded-2xl'>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 '>
                         <fieldset className="fieldset bg-white border-black rounded-box  border p-4">
 
@@ -81,7 +81,7 @@ const ShareGardenTip = () => {
                         <fieldset className="fieldset bg-white  border-black rounded-box  border p-4 col-span-2">
 
                             <label className="label">Description</label>
-                            <textarea className='bg-white' name="description" id="" cols="30" rows="10"></textarea>
+                            <textarea className='bg-white' name="description" id="" cols="10" rows="6"></textarea>
                         </fieldset>
 
                         <fieldset className="fieldset bg-white border-black rounded-box  border p-4 ">

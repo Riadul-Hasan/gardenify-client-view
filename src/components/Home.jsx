@@ -1,15 +1,17 @@
 import React from 'react';
-import Hero from './Hero';
 import FeatureGarden from './FeatureGarden';
 import TipsSection from './TipsSection';
 import Additional1 from './Additional1';
 import Additional2 from './Additional2';
+import HeroSection from './HeroSection';
+
 
 const Home = () => {
     return (
         <>
+
+            <HeroSection></HeroSection>
             <div className=' container mx-auto '>
-                <Hero></Hero>
                 <div className='py-20  container mx-auto'>
                     <FeatureGarden></FeatureGarden>
                 </div>

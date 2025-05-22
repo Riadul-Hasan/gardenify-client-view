@@ -26,9 +26,9 @@ const Navbar = () => {
             })
     ]
     return (
-        <div className="navbar bg-gradient-to-r bg-base-300 container mx-auto px-4 py-3 rounded-lg shadow-lg">
+        <div className="navbar bg-gradient-to-r bg-base-300  px-8 py-4 rounded-lg shadow-lg ">
             {/* Mobile menu button (unchanged functionality) */}
-            <div className="navbar-start">
+            <div className="navbar-start ">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-white hover:bg-green-600">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -55,7 +55,7 @@ const Navbar = () => {
             </div>
 
             {/* Desktop menu */}
-            <div className="navbar-center hidden lg:flex items-center">
+            <div className="navbar-center hidden  lg:flex items-center">
                 <ul className="menu menu-horizontal px-1 space-x-2">
                     {
                         user && <p className='text-yellow-200 font-medium px-3 py-2 rounded-lg bg-green-600 bg-opacity-50'>{user.email}</p>
@@ -107,7 +107,7 @@ const Navbar = () => {
                                         {
                                             user && (
 
-                                                <div className="hover:tooltip tooltip-open hover:tooltip-bottom" data-tip={user?.displayName}>
+                                                <div className="hover:tooltip tooltip-open hover:tooltip-right" data-tip={user?.displayName}>
 
                                                     <div className="flex items-center space-x-2">
                                                         <img
