@@ -35,19 +35,16 @@ const TipsSection = () => {
                                 </p>
                             </div>
 
-                            <div className='flex items-center'>
-                                <p className='text-sm text-gray-600 py-1  font-bold '>Plant type: <span className='font-semibold text-green-600'>{tip.plantType}</span></p>
-                                <p className='text-sm text-gray-600 py-1  font-bold '>Category:<span className='font-semibold text-green-600'> {tip.category}</span></p>
+                            <div className=''>
+                                <p className='text-sm  py-1   '><span className=' text-green-600 font-bold'>Plant Type: </span> <span className=' text-gray-600 text-sm'>{tip.plantType}</span></p>
+                                <p className='text-sm  py-1   '><span className=' text-green-600 font-bold'>Category: </span> <span className=' text-gray-600 text-sm'>{tip.category}</span></p>
+
                             </div>
-                            <div className='flex items-center '>
-                                <p className='text-sm text-gray-600 py-1  font-bold '>Description: <span className='font-semibold text-green-600'><span className='font-semibold text-green-600'>{tip.plantType}</span></span></p>
-                                <p className='text-sm text-gray-600 py-1  font-bold'>Availability <span className='font-semibold text-green-600'><span className='font-semibold text-green-600'>{tip.plantType}</span></span></p>
+                            <div className=' '>
+                                <p className='text-sm  py-1   '><span className=' text-green-600 font-bold'>Description: </span> <span className=' text-gray-600 text-sm'>{tip.description}</span></p>
+                                <p className='text-sm  py-1   '><span className=' text-green-600 font-bold'>Difficulty: </span> <span className=' text-gray-600 text-sm'>{tip.difficulty}</span></p>
                             </div>
 
-                            <div className="card-actions mt-4 flex justify-between items-center">
-                                <button className="text-sm ">{tip.date}</button>
-                                <button className="text-sm font-bold  text-green-700">Save</button>
-                            </div>
                         </div>
                     </div>
 

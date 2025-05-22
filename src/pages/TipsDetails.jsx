@@ -56,7 +56,7 @@ const TipsDetails = () => {
                 </div>
                 <div className='py-6'>
                     <p className='text-2xl font-bold py-2'>Description: </p>
-                    <p className='text-gray-600'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, consectetur impedit. Ad tempora similique ducimus quas itaque reprehenderit vitae a.</p>
+                    <p className='text-gray-600'>{details.description}</p>
                 </div>
 
                 <button className="btn w-full max-w-xs mx-auto bg-gradient-to-r from-green-500 to-green-600 border-0 text-white text-lg font-semibold py-4 rounded-full shadow-md hover:from-green-600 hover:to-green-700 transition-all hover:shadow-lg active:scale-95">

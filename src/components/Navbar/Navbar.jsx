@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import Logo from "../../assets/logo-transparent.png"
 import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
 
@@ -12,7 +13,12 @@ const Navbar = () => {
     const handleLogout = () => [
         logOut()
             .then(() => {
-                alert("Logged Out")
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "You are Logged Out",
+
+                });
                 navigate("/login")
             })
             .catch(error => {
@@ -100,14 +106,18 @@ const Navbar = () => {
                                     <summary className="cursor-pointer flex items-center p-0 hover:bg-transparent">
                                         {
                                             user && (
-                                                <div className="flex items-center space-x-2">
-                                                    <img
-                                                        src={user.photoURL}
-                                                        alt="User Profile"
-                                                        className="w-10 h-10 rounded-full border-2 border-white"
-                                                    />
-                                                    {/* <span className="text-white font-medium">{user.displayName || 'My Account'}</span> */}
+
+                                                <div className="hover:tooltip tooltip-open hover:tooltip-bottom" data-tip={user?.displayName}>
+
+                                                    <div className="flex items-center space-x-2">
+                                                        <img
+                                                            src={user?.photoURL}
+                                                            alt="User Profile"
+                                                            className="w-10 h-10 rounded-full border-2 border-white"
+                                                        />
+                                                    </div>
                                                 </div>
+
                                             )
                                         }
                                     </summary>

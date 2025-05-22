@@ -1,0 +1,156 @@
+[
+  {
+    "_id": "682cd1f4b2a41f0939ad633a",
+    "name": "Lara Green",
+    "specialty": "Organic Vegetable Gardener",
+    "location": "San Francisco, CA",
+    "experience": 8,
+    "status": "Active",
+    "profileImage": "https://img.freepik.com/free-photo/young-woman-taking-care-her-plants_23-2149037252.jpg?uid=R196868788&ga=GA1.1.1037803934.1745168127&semt=ais_hybrid&w=740",
+    "bio": "Passionate about sustainable organic vegetables & educating newbies.",
+    "contact": {
+      "phone": "555-123-4567",
+      "email": "lara.green@example.com"
+    },
+    "tip": "Enrich your soil with compost regularly and rotate crops each season to prevent nutrient depletion."
+  },
+  {
+    "_id": "682cd1f4b2a41f0939ad633b",
+    "name": "Carlos Flores",
+    "specialty": "Ornamental & Landscape Design",
+    "location": "Miami, FL",
+    "experience": 12,
+    "status": "Active",
+    "profileImage": "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?uid=R196868788&ga=GA1.1.1037803934.1745168127&semt=ais_hybrid&w=740",
+    "bio": "Expert in creating lush gardens and outdoor spaces that breathe life.",
+    "contact": {
+      "phone": "555-987-6543",
+      "email": "carlos.flores@example.com"
+    },
+    "tip": "Layer plants by height and texture to create a visually balanced and dynamic landscape design."
+  },
+  {
+    "_id": "682cd1f4b2a41f0939ad633c",
+    "name": "Mei Lin",
+    "specialty": "Herbal & Medicinal Gardens",
+    "location": "Seattle, WA",
+    "experience": 6,
+    "status": "Active",
+    "profileImage": "https://img.freepik.com/free-photo/smiling-beautiful-gardener-girl-wearing-uniform-gardening-hat-holding-flower-flowerpot-with-clippers-spreading-hands-isolated-orange-background_141793-72374.jpg?uid=R196868788&ga=GA1.1.1037803934.1745168127&semt=ais_hybrid&w=740",
+    "bio": "Crafting healing herbal gardens and teaching herbal remedies.",
+    "contact": {
+      "phone": "555-222-3344",
+      "email": "mei.lin@example.com"
+    },
+    "tip": "Harvest herbs in the morning after the dew dries but before the sun gets too hot to preserve oils."
+  },
+  {
+    "_id": "682cd1f4b2a41f0939ad633d",
+    "name": "John Doe",
+    "specialty": "Fruit Orchard & Tree Care",
+    "location": "Austin, TX",
+    "experience": 10,
+    "status": "Active",
+    "profileImage": "https://img.freepik.com/free-photo/positive-male-florist-standing-rows-with-potted-plants-greenhouse-cutting-bush-holding-sprouts_74855-12949.jpg?uid=R196868788&ga=GA1.1.1037803934.1745168127&semt=ais_hybrid&w=740",
+    "bio": "Dedicated to orchard management and fruit tree health.",
+    "contact": {
+      "phone": "555-321-5678",
+      "email": "john.doe@example.com"
+    },
+    "tip": "Prune fruit trees in late winter while they are dormant to encourage healthy new growth."
+  },
+  {
+    "_id": "682cd1f4b2a41f0939ad633e",
+    "name": "Aisha Patel",
+    "specialty": "Urban Gardening & Container Planting",
+    "location": "New York, NY",
+    "experience": 4,
+    "status": "Active",
+    "profileImage": "https://img.freepik.com/free-photo/young-beautiful-florist-taking-care-flowers_176420-2076.jpg?uid=R196868788&ga=GA1.1.1037803934.1745168127&semt=ais_hybrid&w=740",
+    "bio": "Urban gardener transforming small spaces into green havens.",
+    "contact": {
+      "phone": "555-444-5566",
+      "email": "aisha.patel@example.com"
+    },
+    "tip": "Choose lightweight pots with drainage holes and use vertical structures to save space."
+  },
+  {
+    "_id": "682cd1f4b2a41f0939ad633f",
+    "name": "Tom Baker",
+    "specialty": "Sustainable Permaculture",
+    "location": "Portland, OR",
+    "experience": 15,
+    "status": "Active",
+    "profileImage": "https://img.freepik.com/free-photo/confident-male-gardener-optical-glasses-wearing-gardening-hat-holds-clippers-looks-plant_141793-70455.jpg?uid=R196868788&ga=GA1.1.1037803934.1745168127&semt=ais_hybrid&w=740",
+    "bio": "Permaculture designer creating eco-friendly and self-sufficient gardens.",
+    "contact": {
+      "phone": "555-777-8888",
+      "email": "tom.baker@example.com"
+    },
+    "tip": "Design with zones in mind and plant perennial species that require less input and provide long-term yield."
+  },
+  {
+    "name": "Mrs Sumaiya",
+    "specialty": "Flower & Rose Gardening",
+    "location": "Denver, CO",
+    "experience": {
+      "$numberInt": "7"
+    },
+    "status": "Inactive",
+    "profileImage": "https://img.freepik.com/free-photo/happy-gardeners-growing-coniferous-plants-pots-blonde-woman-holding-small-thuja-working-with-grey-haired-man-glasses-gardening-activity-summer-concept_74855-12856.jpg?uid=R196868788&ga=GA1.1.1037803934.1745168127&semt=ais_hybrid&w=740",
+    "bio": "Loves cultivating beautiful flowers and roses.",
+    "contact": {
+      "phone": "555-555-5555",
+      "email": "inactive.gardener@example.com"
+    },
+    "tip": "Deadhead spent roses regularly to encourage more blooms and prevent disease."
+  },
+  {
+    "name": "Don Joe",
+    "specialty": "Vegetable Art & Edible Landscaping",
+    "location": "Chicago, IL",
+    "experience": {
+      "$numberInt": "3"
+    },
+    "status": "Inactive",
+    "profileImage": "https://img.freepik.com/free-photo/bearded-man-holding-hose-standing-watering-plants-unrecognizable-blurred-colleague-growing-flowers-two-gardeners-wearing-uniform-working-hothouse-gardening-activity-summer-concept_74855-12690.jpg?uid=R196868788&ga=GA1.1.1037803934.1745168127&semt=ais_hybrid&w=740",
+    "bio": "Creating edible landscapes with a touch of art.",
+    "contact": {
+      "phone": "555-666-7777",
+      "email": "inactive2@example.com"
+    },
+    "tip": "Use colorful vegetables like Swiss chard and rainbow carrots to create beautiful, edible borders."
+  },
+  {
+    "name": "Sameer Patel",
+    "specialty": "Native Plants & Eco-Gardening",
+    "location": "Boise, ID",
+    "experience": {
+      "$numberInt": "5"
+    },
+    "status": "Inactive",
+    "profileImage": "https://img.freepik.com/free-photo/delivery-concept-handsome-african-american-delivery-man-crossed-arms-isolated-grey-studio-background-copy-space_1258-1277.jpg?uid=R196868788&ga=GA1.1.1037803934.1745168127&semt=ais_hybrid&w=740",
+    "bio": "Promoting native plants and eco-friendly practices.",
+    "contact": {
+      "phone": "555-888-9999",
+      "email": "inactive3@example.com"
+    },
+    "tip": "Use mulch to retain moisture and suppress weeds while supporting soil health in native plant gardens."
+  },
+  {
+    "name": "Elena Rossi",
+    "specialty": "Vertical Farming & Hydroponics",
+    "location": "Los Angeles, CA",
+    "experience": {
+      "$numberInt": "9"
+    },
+    "status": "Active",
+    "profileImage": "https://img.freepik.com/free-photo/builder-woman-construction-uniform-safety-helmet-holding-clipboard-pen-looking-confident-with-smile-face-isolated-green-wall_141793-14490.jpg?uid=R196868788&ga=GA1.1.1037803934.1745168127&semt=ais_hybrid&w=740",
+    "bio": "Innovator in vertical farming and hydroponic techniques for urban settings.",
+    "contact": {
+      "phone": "555-999-1212",
+      "email": "elena.rossi@example.com"
+    },
+    "tip": "Ensure your hydroponic system has proper pH and oxygenation to support healthy root growth."
+  }
+]
