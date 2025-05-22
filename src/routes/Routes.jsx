@@ -13,6 +13,7 @@ import PrivateRoute from "../provider/PrivateRoute";
 import MyTips from "../pages/MyTips";
 import TipsDetails from "../pages/TipsDetails";
 import UpdateTips from "../pages/UpdateTips";
+import ErrorPage from "../pages/ErrorPage";
 
 export const router = createBrowserRouter([
     {
@@ -67,4 +68,8 @@ export const router = createBrowserRouter([
 
         ]
     },
+    {
+        path: "*",
+        Component: ErrorPage
+    }
 ]);
