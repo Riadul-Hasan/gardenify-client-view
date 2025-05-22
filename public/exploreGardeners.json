@@ -5,7 +5,7 @@
     "gender": "Female",
     "status": "Available",
     "experiences": "15 years in organic gardening, expert in vegetable and herb cultivation.",
-    "image": "https://example.com/images/alice.jpg",
+    "image": "https://img.freepik.com/free-photo/young-beautiful-florist-taking-care-flowers_176420-2076.jpg?uid=R196868788&ga=GA1.1.1037803934.1745168127&semt=ais_hybrid&w=740",
     "total_shared_tips": 120,
     "other_info": {
       "location": "Portland, OR",
@@ -18,7 +18,7 @@
     "gender": "Male",
     "status": "Unavailable",
     "experiences": "10 years of landscaping and urban gardening experience.",
-    "image": "https://example.com/images/marcus.jpg",
+    "image": "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?uid=R196868788&ga=GA1.1.1037803934.1745168127&semt=ais_hybrid&w=740",
     "total_shared_tips": 85,
     "other_info": {
       "location": "Austin, TX",
@@ -31,7 +31,7 @@
     "gender": "Female",
     "status": "Available",
     "experiences": "Specialist in balcony and indoor plant care.",
-    "image": "https://example.com/images/leah.jpg",
+    "image": "https://img.freepik.com/free-photo/young-woman-taking-care-her-plants_23-2149037252.jpg?uid=R196868788&ga=GA1.1.1037803934.1745168127&semt=ais_hybrid&w=740",
     "total_shared_tips": 60,
     "other_info": {
       "location": "Brooklyn, NY",
@@ -44,7 +44,7 @@
     "gender": "Male",
     "status": "Available",
     "experiences": "25 years in soil science and irrigation systems.",
-    "image": "https://example.com/images/george.jpg",
+    "image": "https://img.freepik.com/free-photo/confident-male-gardener-optical-glasses-wearing-gardening-hat-holds-clippers-looks-plant_141793-70455.jpg?uid=R196868788&ga=GA1.1.1037803934.1745168127&semt=ais_hybrid&w=740",
     "total_shared_tips": 145,
     "other_info": {
       "location": "Boise, ID",
@@ -57,7 +57,7 @@
     "gender": "Female",
     "status": "On Leave",
     "experiences": "Hydroponics and vertical farming specialist.",
-    "image": "https://example.com/images/nina.jpg",
+    "image": "https://img.freepik.com/free-photo/young-gardener-girl-apron-summer-hat-holding-hedge-clippers-potted-plant-with-smile-face-standing-orange-wall_141793-81824.jpg?uid=R196868788&ga=GA1.1.1037803934.1745168127&semt=ais_hybrid&w=740",
     "total_shared_tips": 73,
     "other_info": {
       "location": "San Francisco, CA",
@@ -70,7 +70,7 @@
     "gender": "Male",
     "status": "Available",
     "experiences": "Native plant restoration and community garden coordination.",
-    "image": "https://example.com/images/ethan.jpg",
+    "image": "https://img.freepik.com/free-photo/positive-male-florist-standing-rows-with-potted-plants-greenhouse-cutting-bush-holding-sprouts_74855-12949.jpg?uid=R196868788&ga=GA1.1.1037803934.1745168127&semt=ais_hybrid&w=740",
     "total_shared_tips": 102,
     "other_info": {
       "location": "Denver, CO",
@@ -83,7 +83,7 @@
     "gender": "Female",
     "status": "Available",
     "experiences": "Young gardening enthusiast with a focus on pollinator-friendly plants.",
-    "image": "https://example.com/images/maya.jpg",
+    "image": "https://image.shutterstock.com/image-photo/woman-portrait-plant-gardening-park-260nw-2256248131.jpg",
     "total_shared_tips": 38,
     "other_info": {
       "location": "Seattle, WA",
@@ -93,10 +93,10 @@
   {
     "name": "Carlos Verde",
     "age": 48,
-    "gender": "Male",
+    "gender": "Female",
     "status": "Available",
     "experiences": "Experienced in tropical and subtropical flora.",
-    "image": "https://example.com/images/carlos.jpg",
+    "image": "https://img.freepik.com/free-photo/smiling-beautiful-gardener-girl-wearing-uniform-gardening-hat-holding-flower-flowerpot-with-clippers-spreading-hands-isolated-orange-background_141793-72374.jpg?uid=R196868788&ga=GA1.1.1037803934.1745168127&semt=ais_hybrid&w=740",
     "total_shared_tips": 96,
     "other_info": {
       "location": "Miami, FL",

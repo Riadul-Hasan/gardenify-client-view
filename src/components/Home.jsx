@@ -17,10 +17,10 @@ const Home = () => {
                     <TipsSection></TipsSection>
                 </div>
             </div>
-            <div className='mt-20 bg-base-200 p-10 mb-20'>
+            <div className='mt-20 bg-gradient-to-r from-green-100 via-gray-300 to-lime-100 p-10 mb-20'>
                 <Additional1></Additional1>
             </div>
-            <div className='mt-20 bg-base-200 p-10 mb-20'>
+            <div className='mt-20 bg-base-200  mb-20'>
                 <Additional2></Additional2>
             </div>
 

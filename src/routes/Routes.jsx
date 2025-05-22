@@ -25,6 +25,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/explore",
+                loader: () => fetch("/exploreGardeners.json"),
                 Component: ExploreGardeners
             },
             {

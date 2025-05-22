@@ -1,12 +1,22 @@
-import React from 'react';
-import { useLoaderData } from 'react-router';
+import React, { use, useEffect, useState } from 'react';
+import { AuthContext } from '../provider/AuthProvider';
+
 
 const MyTips = () => {
-    const myTips = useLoaderData()
-    console.log("my tips", myTips)
+    const { user } = use(AuthContext)
+    const [myTip, setMyTip] = useState([])
+
+    useEffect(() => {
+        fetch(`http://localhost:3000/myTips?email=${user.email}`)
+            .then(res => res.json())
+            .then(data => setMyTip(data))
+    }, [user])
     return (
-        <div>
-            My tips here
+        <div className='min-h-[calc(100vh-300px)] container mx-auto mt-20'>
+            {myTip.length}
+            {
+                myTip.map(tip => <p>{tip.email}</p>)
+            }
         </div>
     );
 };

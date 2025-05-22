@@ -18,14 +18,35 @@ const TipsSection = () => {
 
             <div className='grid grid-cols-3 gap-6 p-4'>
                 {
-                    tips.map(tip => <div className="card  bg-base-100 card-lg shadow-sm">
+                    tips.map(tip => <div className="card  bg-base-100 card-lg shadow-sm ">
                         <div className="card-body">
-                            <h2 className="px-2 flex justify-center items-center rounded-2xl text-blue-600 font-semibold text-sm bg-blue-100 w-3/7">{tip.category}</h2>
-                            <p className='font-bold mt-2'>{tip.title}</p>
-                            <p className='text-sm text-gray-600 py-1 pb-6 border-b-1 border-dashed'>{tip.content}</p>
+                            <h2 className="px-2 flex justify-center items-center rounded-2xl text-green-800 font-semibold text-sm bg-blue-100 w-3/7">{tip.category}</h2>
+
+                            <div className='flex items-center gap-4 py-6'>
+                                <div className='relative flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24'>
+                                    <img
+                                        className='absolute w-full h-full object-cover rounded-lg'
+                                        src={tip.imageUrl}
+                                        alt={tip.title}
+                                    />
+                                </div>
+                                <p className='text-lg sm:text-xl font-semibold line-clamp-2'>
+                                    {tip.title}
+                                </p>
+                            </div>
+
+                            <div className='flex items-center'>
+                                <p className='text-sm text-gray-600 py-1  font-bold '>Plant type: <span className='font-semibold text-green-600'>{tip.plantType}</span></p>
+                                <p className='text-sm text-gray-600 py-1  font-bold '>Category:<span className='font-semibold text-green-600'> {tip.category}</span></p>
+                            </div>
+                            <div className='flex items-center '>
+                                <p className='text-sm text-gray-600 py-1  font-bold '>Description: <span className='font-semibold text-green-600'><span className='font-semibold text-green-600'>{tip.plantType}</span></span></p>
+                                <p className='text-sm text-gray-600 py-1  font-bold'>Availability <span className='font-semibold text-green-600'><span className='font-semibold text-green-600'>{tip.plantType}</span></span></p>
+                            </div>
+
                             <div className="card-actions mt-4 flex justify-between items-center">
                                 <button className="text-sm ">{tip.date}</button>
-                                <button className="text-sm font-bold text-green-700">Save</button>
+                                <button className="text-sm font-bold  text-green-700">Save</button>
                             </div>
                         </div>
                     </div>
@@ -35,6 +56,8 @@ const TipsSection = () => {
                 }
             </div>
         </div>
+
+
     );
 };
 
