@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 
 const MyTips = () => {
     const { user } = use(AuthContext)
+    // const [initialTip, setInitialTip] = useState([])
     const [myTip, setMyTip] = useState([])
 
     useEffect(() => {
@@ -36,9 +37,12 @@ const MyTips = () => {
                         if (data.deletedCount) {
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your file has been deleted.",
+                                text: "Tips Deleted Successfully",
                                 icon: "success"
                             });
+                            // delete from ui
+                            const remainingTips = myTip.filter(rem => rem._id !== id)
+                            setMyTip(remainingTips)
                         }
                     })
 
@@ -100,7 +104,7 @@ const MyTips = () => {
                                         </td>
 
                                         <th>
-                                            <button className="btn btn-ghost btn-xs">Update</button>
+                                            <Link to={`/updateTips/${tips._id}`} className="btn btn-ghost btn-xs">Update</Link>
                                             <button onClick={() => handleDelete(tips._id)} className="btn btn-ghost btn-xs">Delete</button>
                                         </th>
                                     </tr>)

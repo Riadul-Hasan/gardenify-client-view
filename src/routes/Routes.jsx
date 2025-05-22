@@ -12,6 +12,7 @@ import ShareGardenTip from "../pages/ShareGardenTip";
 import PrivateRoute from "../provider/PrivateRoute";
 import MyTips from "../pages/MyTips";
 import TipsDetails from "../pages/TipsDetails";
+import UpdateTips from "../pages/UpdateTips";
 
 export const router = createBrowserRouter([
     {
@@ -56,6 +57,11 @@ export const router = createBrowserRouter([
                 path: "/tipsDetails/:id",
                 loader: ({ params }) => fetch(`http://localhost:3000/shareTips/${params.id}`),
                 element: <PrivateRoute><TipsDetails></TipsDetails></PrivateRoute>
+            },
+            {
+                path: "/updateTips/:id",
+                loader: ({ params }) => fetch(`http://localhost:3000/shareTips/${params.id}`),
+                element: <PrivateRoute><UpdateTips></UpdateTips></PrivateRoute>
             }
 
 
