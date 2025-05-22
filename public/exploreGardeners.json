@@ -1,0 +1,106 @@
+[
+  {
+    "name": "Alice Greenfield",
+    "age": 45,
+    "gender": "Female",
+    "status": "Available",
+    "experiences": "15 years in organic gardening, expert in vegetable and herb cultivation.",
+    "image": "https://example.com/images/alice.jpg",
+    "total_shared_tips": 120,
+    "other_info": {
+      "location": "Portland, OR",
+      "languages": ["English", "Spanish"]
+    }
+  },
+  {
+    "name": "Marcus Bloom",
+    "age": 38,
+    "gender": "Male",
+    "status": "Unavailable",
+    "experiences": "10 years of landscaping and urban gardening experience.",
+    "image": "https://example.com/images/marcus.jpg",
+    "total_shared_tips": 85,
+    "other_info": {
+      "location": "Austin, TX",
+      "certifications": ["Certified Permaculture Designer"]
+    }
+  },
+  {
+    "name": "Leah Fern",
+    "age": 29,
+    "gender": "Female",
+    "status": "Available",
+    "experiences": "Specialist in balcony and indoor plant care.",
+    "image": "https://example.com/images/leah.jpg",
+    "total_shared_tips": 60,
+    "other_info": {
+      "location": "Brooklyn, NY",
+      "favorite_plant": "Fiddle Leaf Fig"
+    }
+  },
+  {
+    "name": "George Clay",
+    "age": 52,
+    "gender": "Male",
+    "status": "Available",
+    "experiences": "25 years in soil science and irrigation systems.",
+    "image": "https://example.com/images/george.jpg",
+    "total_shared_tips": 145,
+    "other_info": {
+      "location": "Boise, ID",
+      "tools_specialty": ["Compost systems", "Greenhouse design"]
+    }
+  },
+  {
+    "name": "Nina Root",
+    "age": 34,
+    "gender": "Female",
+    "status": "On Leave",
+    "experiences": "Hydroponics and vertical farming specialist.",
+    "image": "https://example.com/images/nina.jpg",
+    "total_shared_tips": 73,
+    "other_info": {
+      "location": "San Francisco, CA",
+      "projects_led": ["Urban Garden Collective 2022"]
+    }
+  },
+  {
+    "name": "Ethan Thorn",
+    "age": 41,
+    "gender": "Male",
+    "status": "Available",
+    "experiences": "Native plant restoration and community garden coordination.",
+    "image": "https://example.com/images/ethan.jpg",
+    "total_shared_tips": 102,
+    "other_info": {
+      "location": "Denver, CO",
+      "volunteer_hours": 500
+    }
+  },
+  {
+    "name": "Maya Sprout",
+    "age": 26,
+    "gender": "Female",
+    "status": "Available",
+    "experiences": "Young gardening enthusiast with a focus on pollinator-friendly plants.",
+    "image": "https://example.com/images/maya.jpg",
+    "total_shared_tips": 38,
+    "other_info": {
+      "location": "Seattle, WA",
+      "social_media": "@maya_grows"
+    }
+  },
+  {
+    "name": "Carlos Verde",
+    "age": 48,
+    "gender": "Male",
+    "status": "Available",
+    "experiences": "Experienced in tropical and subtropical flora.",
+    "image": "https://example.com/images/carlos.jpg",
+    "total_shared_tips": 96,
+    "other_info": {
+      "location": "Miami, FL",
+      "language": ["English", "Portuguese"]
+    }
+  }
+]

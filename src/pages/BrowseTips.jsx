@@ -50,7 +50,7 @@ const BrowseTips = () => {
                                         </td>
 
                                         <th>
-                                            <Link to={`/shareTips/${tips._id}`} className="btn btn-ghost btn-xs">Details</Link>
+                                            <Link to={`/tipsDetails/${tips._id}`} className="btn btn-ghost btn-xs">Details</Link>
                                         </th>
                                     </tr>)
                             }

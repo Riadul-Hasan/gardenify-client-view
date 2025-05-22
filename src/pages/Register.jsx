@@ -36,7 +36,7 @@ const Register = () => {
 
 
         if (password.length < 8) {
-            setError("Password length should be 6 char or more...")
+            setError("Password length should be 8 char or more...")
         }
         if (!/[^A-Za-z0-9]/.test(password)) {
             setError("Password must have at least one special character");

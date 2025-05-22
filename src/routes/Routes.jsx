@@ -48,10 +48,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/myTips',
+
                 element: <PrivateRoute><MyTips></MyTips></PrivateRoute>
             },
             {
-                path: "/shareTips/:id",
+                path: "/tipsDetails/:id",
                 loader: ({ params }) => fetch(`http://localhost:3000/shareTips/${params.id}`),
                 element: <PrivateRoute><TipsDetails></TipsDetails></PrivateRoute>
             }
