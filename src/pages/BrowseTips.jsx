@@ -6,8 +6,8 @@ const BrowseTips = () => {
     const tipsData = useLoaderData()
     console.log(tipsData)
     return (
-        <div className='container mx-auto py-20'>
-            <h2 className='text-4xl text-green-800 text-center font-bold py-20'>All Gardening Tips Here</h2>
+        <div className='container mx-auto py-10 min-h-[calc(100vh-300px)]'>
+            <h2 className='text-2xl text-green-800 text-center font-bold py-20'>All Gardening Tips Here</h2>
             <div>
 
                 <div className="overflow-x-auto w-3/4 mx-auto">
@@ -20,7 +20,7 @@ const BrowseTips = () => {
                                 <th>Title </th>
                                 <th>Category</th>
                                 <th>Action</th>
-                                <th></th>
+                                {/* <th></th> */}
                             </tr>
                         </thead>
                         <tbody>
@@ -28,7 +28,7 @@ const BrowseTips = () => {
                                 tipsData.map(tips =>
                                     <tr key={tips._id}>
 
-                                        <td>
+                                        <td className='px-6 border border-base-300'>
                                             <div className="avatar">
                                                 <div className="mask mask-squircle h-12 w-12">
                                                     <img
@@ -37,7 +37,7 @@ const BrowseTips = () => {
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
+                                        <td className='px-6 border border-base-300'>
                                             <div className="flex items-center gap-3">
 
                                                 <div>
@@ -45,13 +45,13 @@ const BrowseTips = () => {
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
+                                        <td className='px-6 border border-base-300'>
                                             <p>{tips.category}</p>
                                         </td>
 
-                                        <th>
-                                            <Link to={`/tipsDetails/${tips._id}`} className="btn btn-ghost btn-xs">Details</Link>
-                                        </th>
+                                        <td className='px-6 border border-base-300'>
+                                            <Link to={`/tipsDetails/${tips._id}`} className="btn btn-ghost bg-green-600 flex justify-center items-center w-2/4 mx-auto text-white btn-xs">See More</Link>
+                                        </td>
                                     </tr>)
                             }
 

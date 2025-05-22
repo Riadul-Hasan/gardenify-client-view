@@ -10,7 +10,7 @@ const TipsDetails = () => {
     return (
 
 
-        <div className='container max-w-4xl mx-auto mt-50 px-4'>
+        <div className='container max-w-4xl mx-auto py-20 px-4'>
             <div className="card bg-white shadow-lg rounded-3xl p-8 text-center">
 
                 <figure className="flex justify-center -mt-20 mb-6">
@@ -24,7 +24,7 @@ const TipsDetails = () => {
                 </figure>
 
 
-                <h2 className="text-4xl font-bold text-gray-800 mb-10">{details.title}</h2>
+                <h2 className="text-2xl font-bold text-gray-800 mb-10">{details.title}</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
                     <div className='space-y-5'>

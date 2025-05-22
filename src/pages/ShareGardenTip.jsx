@@ -35,7 +35,7 @@ const ShareGardenTip = () => {
 
     }
     return (
-        <div className='py-20 bg-green-50'>
+        <div className='bg-gray-400'>
             <div className='py-10 w-4/9 mx-auto '>
 
                 <div className='text-center py-8'>
@@ -45,7 +45,7 @@ const ShareGardenTip = () => {
 
 
 
-                <form onSubmit={handleAddTips} className='bg-white p-6 rounded-2xl'>
+                <form onSubmit={handleAddTips} className=' p-6 bg-base-300 rounded-2xl'>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 '>
                         <fieldset className="fieldset bg-white border-black rounded-box  border p-4">
 
@@ -60,7 +60,7 @@ const ShareGardenTip = () => {
                         <fieldset className="fieldset bg-white border-black rounded-box  border p-4">
 
                             <label className="label">Difficulty Level</label>
-                            <select name="difficulty" className='bg-white p-4' id="">
+                            <select name="difficulty" className='bg-white border rounded-xl border-gray-400 p-4' id="">
 
                                 <option value="easy">Easy</option>
                                 <option value="medium">Medium</option>
@@ -71,7 +71,7 @@ const ShareGardenTip = () => {
                         <fieldset className="fieldset bg-white md:col-spa border-black rounded-box  border p-4">
 
                             <label className="label">Category</label>
-                            <select name="category" className='bg-white p-4' id="">
+                            <select name="category" className='border rounded-xl border-gray-400 p-4' id="">
 
                                 <option value="composting">Composting</option>
                                 <option value="plantCare">Plant Care</option>
@@ -81,7 +81,7 @@ const ShareGardenTip = () => {
                         <fieldset className="fieldset bg-white  border-black rounded-box  border p-4 col-span-2">
 
                             <label className="label">Description</label>
-                            <textarea className='bg-white' name="description" id="" cols="10" rows="6"></textarea>
+                            <textarea className='bg-white border rounded-xl border-gray-400' name="description" id="" cols="10" rows="6"></textarea>
                         </fieldset>
 
                         <fieldset className="fieldset bg-white border-black rounded-box  border p-4 ">
@@ -95,7 +95,7 @@ const ShareGardenTip = () => {
                         <fieldset className="fieldset bg-base-200 border-black rounded-box  border p-4">
 
                             <label className="label">Availability</label>
-                            <select name="availability" className='bg-white p-4' id="">
+                            <select name="availability" className='bg-white p-3 border rounded-xl border-gray-400' id="">
 
                                 <option value="public">Public</option>
                                 <option value="hidden">Hidden</option>
@@ -121,7 +121,7 @@ const ShareGardenTip = () => {
 
 
                     <div className='py-10'>
-                        <input type="submit" className='btn w-full' value="Submit" />
+                        <input type="submit" className='btn w-full bg-green-600 text-white' value="Submit" />
                     </div>
                 </form>
             </div>

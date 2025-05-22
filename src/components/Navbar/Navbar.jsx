@@ -49,7 +49,7 @@ const Navbar = () => {
                 </div>
                 {/* Logo */}
                 <NavLink to="/" className="flex items-center">
-                    <img className='w-16 h-16 object-contain' src={Logo} alt="Gardenify Logo" />
+                    <img className='w-16 h-16 object-contain' src={Logo} alt="logo" />
                     <span className="ml-2 text-2xl font-bold  hidden sm:inline-block">Gardenify</span>
                 </NavLink>
             </div>

@@ -54,8 +54,8 @@ const MyTips = () => {
     return (
 
 
-        <div className='container mx-auto  py-20 lg:mb-32'>
-            <h2 className='text-4xl text-green-800 text-center font-bold py-20'>My Tips</h2>
+        <div className='container mx-auto   lg:mb-32'>
+            <h2 className='text-3xl text-green-800 text-center font-bold py-20'>My Tips</h2>
 
             <div className="avatar flex items-center justify-center">
                 <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring-2 ring-offset-2">
@@ -76,7 +76,7 @@ const MyTips = () => {
                 <div className="overflow-x-auto w-3/4 mx-auto">
                     <table className="table">
                         <thead>
-                            <tr className='bg-base-200'>
+                            <tr className='bg-base-300'>
                                 <th>Title </th>
                                 <th>Tips Description</th>
                                 <th>Category</th>
@@ -86,17 +86,17 @@ const MyTips = () => {
                         <tbody>
                             {myTip.map(tips => (
                                 <tr key={tips._id}>
-                                    <td>
-                                        <div className="flex items-center gap-3">
-                                            <div className="font-bold">{tips.title}</div>
+                                    <td className='px-6 border border-base-300'>
+                                        <div className="flex items-center gap-3 px-6 ">
+                                            <div className="font-bold ">{tips.title}</div>
                                         </div>
                                     </td>
-                                    <td>{tips.description}</td>
-                                    <td>{tips.category}</td>
-                                    <th className='flex gap-4 items-center'>
-                                        <Link to={`/updateTips/${tips._id}`} className="btn btn-ghost bg-green-400 text-black btn-xs">Update</Link>
+                                    <td className='px-6 border border-base-300 '>{tips.description}</td>
+                                    <td className='px-6 border-b border-base-300'>{tips.category}</td>
+                                    <td className='flex gap-4 items-center p-6 px-6 border border-base-300'>
+                                        <Link to={`/updateTips/${tips._id}`} className="btn btn-ghost bg-green-400  btn-xs">Update</Link>
                                         <button onClick={() => handleDelete(tips._id)} className="btn btn-secondary btn-xs">Delete</button>
-                                    </th>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>

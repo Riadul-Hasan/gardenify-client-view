@@ -45,6 +45,11 @@ const TipsSection = () => {
                                 <p className='text-sm  py-1   '><span className=' text-green-600 font-bold'>Difficulty: </span> <span className=' text-gray-600 text-sm'>{tip.difficulty}</span></p>
                             </div>
 
+                            <div className='text-xs '>
+                                <p><span className='font-bold'>Tips From:</span> {tip.name}</p>
+                                {/* <p>Email: {tip.email}</p> */}
+                            </div>
+
                         </div>
                     </div>
 
