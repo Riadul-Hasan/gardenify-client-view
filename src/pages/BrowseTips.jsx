@@ -6,7 +6,7 @@ const BrowseTips = () => {
     const tipsData = useLoaderData()
     console.log(tipsData)
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto py-20'>
             <h2 className='text-4xl text-green-800 text-center font-bold py-20'>All Gardening Tips Here</h2>
             <div>
 
