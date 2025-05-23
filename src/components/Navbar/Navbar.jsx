@@ -88,14 +88,20 @@ const Navbar = () => {
                         `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
                         <li>Browse Tips</li>
                     </NavLink>
-                    <NavLink to="/shareTips" className={({ isActive }) =>
-                        `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
-                        <li>Share a Tip</li>
-                    </NavLink>
-                    <NavLink to="/myTips" className={({ isActive }) =>
-                        `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
-                        <li>My Tips</li>
-                    </NavLink>
+                    {
+                        user && <NavLink to="/shareTips" className={({ isActive }) =>
+                            `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
+                            <li>Share a Tip</li>
+                        </NavLink>
+
+                    }
+                    {
+                        user && <NavLink to="/myTips" className={({ isActive }) =>
+                            `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
+                            <li>My Tips</li>
+                        </NavLink>
+                    }
+
 
                     {/* Auth buttons */}
                     <div className="flex items-center ml-2 gap-3">

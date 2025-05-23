@@ -17,7 +17,7 @@ const UpdateTips = () => {
         console.log(updatedTip)
 
         // send update tip to database
-        fetch(`http://localhost:3000/shareTips/${singleData._id}`, {
+        fetch(`https://gardening-server-theta.vercel.app/shareTips/${singleData._id}`, {
             method: "PUT",
             headers: {
                 'content-type': "application/json"

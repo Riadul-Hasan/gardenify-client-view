@@ -4,7 +4,7 @@ import { FaHeart } from 'react-icons/fa6';
 const TipsSection = () => {
     const [tips, setTips] = useState([])
     useEffect(() => {
-        fetch("http://localhost:3000/tips")
+        fetch("https://gardening-server-theta.vercel.app/tips")
             .then(res => res.json())
             .then(data => setTips(data))
             .catch(error => console.error('Error fetching tips:', error));
@@ -19,7 +19,7 @@ const TipsSection = () => {
 
             <div className='grid grid-cols-3 gap-6 p-4'>
                 {
-                    tips.map(tip => <div className="card  bg-base-100 card-lg shadow-sm ">
+                    tips.map(tip => <div key={tip._id} className="card  bg-base-100 card-lg shadow-sm ">
                         <div className="card-body">
                             <div className=''>
                                 {/* <h2 className="px-2 flex justify-center items-center rounded-2xl  font-semibold  bg-green-100 ">{tip.category}</h2> */}

@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 hydrateFallbackElement: <Loading></Loading>,
-                loader: () => fetch("http://localhost:3000/gardeners"),
+                loader: () => fetch("https://gardening-server-theta.vercel.app/gardeners"),
                 Component: Home
             },
             {
@@ -36,7 +36,7 @@ export const router = createBrowserRouter([
             {
                 path: "/browseTips",
                 hydrateFallbackElement: <Loading></Loading>,
-                loader: () => fetch("http://localhost:3000/shareTips"),
+                loader: () => fetch("https://gardening-server-theta.vercel.app/shareTips"),
                 Component: BrowseTips
             },
             {
@@ -61,13 +61,13 @@ export const router = createBrowserRouter([
             {
                 path: "/tipsDetails/:id",
                 hydrateFallbackElement: <Loading></Loading>,
-                loader: ({ params }) => fetch(`http://localhost:3000/shareTips/${params.id}`),
+                loader: ({ params }) => fetch(`https://gardening-server-theta.vercel.app/shareTips/${params.id}`),
                 element: <PrivateRoute><TipsDetails></TipsDetails></PrivateRoute>
             },
             {
                 path: "/updateTips/:id",
                 hydrateFallbackElement: <Loading></Loading>,
-                loader: ({ params }) => fetch(`http://localhost:3000/shareTips/${params.id}`),
+                loader: ({ params }) => fetch(`https://gardening-server-theta.vercel.app/shareTips/${params.id}`),
                 element: <PrivateRoute><UpdateTips></UpdateTips></PrivateRoute>
             }
 

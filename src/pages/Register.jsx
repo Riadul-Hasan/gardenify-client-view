@@ -68,7 +68,7 @@ const Register = () => {
                         console.log(error)
                         setUser(user)
                     })
-                fetch('http://localhost:3000/users', {
+                fetch('https://gardening-server-theta.vercel.app/users', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'

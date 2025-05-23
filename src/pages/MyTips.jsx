@@ -10,7 +10,7 @@ const MyTips = () => {
     const [myTip, setMyTip] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:3000/myTips?email=${user.email}`)
+        fetch(`https://gardening-server-theta.vercel.app/myTips?email=${user.email}`)
             .then(res => res.json())
             .then(data => setMyTip(data))
     }, [user])
@@ -30,7 +30,7 @@ const MyTips = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/shareTips/${id}`, {
+                fetch(`https://gardening-server-theta.vercel.app/shareTips/${id}`, {
                     method: "DELETE",
 
                 })
@@ -56,6 +56,7 @@ const MyTips = () => {
 
         <div className='container mx-auto   lg:mb-32'>
             <h2 className='text-3xl text-green-600 text-center font-bold py-20 dark:text-red-500'>My Tips</h2>
+
 
             <div className="avatar flex items-center justify-center">
                 <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring-2 ring-offset-2">

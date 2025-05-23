@@ -16,7 +16,7 @@ const ShareGardenTip = () => {
             totalLiked: 0
         }
 
-        fetch("http://localhost:3000/shareTIps", {
+        fetch("https://gardening-server-theta.vercel.app/shareTIps", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -39,7 +39,7 @@ const ShareGardenTip = () => {
 
     }
     return (
-        <div className='bg-gray-400'>
+        <div className='bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 '>
             <div className='py-10 w-4/9 mx-auto '>
 
                 <div className='text-center py-8'>

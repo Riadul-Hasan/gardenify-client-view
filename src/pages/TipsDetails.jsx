@@ -11,7 +11,7 @@ const TipsDetails = () => {
 
 
     const handleIncrementLike = () => {
-        fetch(`http://localhost:3000/shareTips/${details._id}`, {
+        fetch(`https://gardening-server-theta.vercel.app/shareTips/${details._id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"
