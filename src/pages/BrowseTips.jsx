@@ -19,8 +19,9 @@ const BrowseTips = () => {
                                 <th>Image </th>
                                 <th>Title </th>
                                 <th>Category</th>
+                                <th>Difficulty</th>
                                 <th>Action</th>
-                                {/* <th></th> */}
+
                             </tr>
                         </thead>
                         <tbody>
@@ -47,6 +48,9 @@ const BrowseTips = () => {
                                         </td>
                                         <td className='px-6 border border-base-300'>
                                             <p>{tips.category}</p>
+                                        </td>
+                                        <td className='px-6 border border-base-300'>
+                                            <p>{tips.difficulty}</p>
                                         </td>
 
                                         <td className='px-6 border border-base-300'>
