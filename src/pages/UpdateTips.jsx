@@ -36,8 +36,8 @@ const UpdateTips = () => {
             })
     }
     return (
-        <div className='py-20 bg-green-50'>
-            <div className='py-10 container mx-auto '>
+        <div className=' bg-green-50'>
+            <div className='py-10 lg:w-4/9 p-4 lg:p-0 container mx-auto '>
 
                 <div className='text-center py-8'>
                     <h2 className='text-4xl font-semibold py-2 text-green-800'>Update Tip</h2>
@@ -122,7 +122,7 @@ const UpdateTips = () => {
 
 
                     <div className='py-10'>
-                        <input type="submit" className='btn w-full btn-primary' value="Update Tip" />
+                        <input type="submit" className='btn w-full bg-green-500' value="Update Tip" />
                     </div>
                 </form>
             </div>

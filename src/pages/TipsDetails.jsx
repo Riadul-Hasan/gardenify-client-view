@@ -52,7 +52,7 @@ const TipsDetails = () => {
 
                 <h2 className="text-2xl font-bold text-gray-800 mb-10">{details.title}</h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div className="grid grid-cols-1  md:grid-cols-2 gap-8 mb-10">
                     <div className='space-y-5'>
                         <p className='text-lg font-medium text-gray-700 flex items-center justify-center gap-3'>
                             <span className="bg-green-100 p-2 rounded-full text-green-600"><IoBookOutline /></span>
@@ -85,7 +85,7 @@ const TipsDetails = () => {
                     <p className='text-gray-600'>{details.description}</p>
                 </div>
 
-                <button onClick={handleIncrementLike} className="btn w-full max-w-xs mx-auto bg-gradient-to-r from-green-500 to-green-600 border-0 text-white text-lg font-semibold py-4 rounded-full shadow-md hover:from-green-600 hover:to-green-700 transition-all hover:shadow-lg active:scale-95">
+                <button onClick={handleIncrementLike} className="btn  w-full max-w-xs mx-auto  bg-gradient-to-br from-pink-500 via-red-400 to-rose-400  border-0 text-white text-lg font-semibold py-4 rounded-full shadow-md  transition-all hover:shadow-lg active:scale-95">
                     Like This Tip
                 </button>
             </div>

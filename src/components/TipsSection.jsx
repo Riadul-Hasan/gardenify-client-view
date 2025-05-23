@@ -17,7 +17,7 @@ const TipsSection = () => {
 
             </div>
 
-            <div className='grid grid-cols-3 gap-6 p-4'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-6 p-4'>
                 {
                     tips.map(tip => <div key={tip._id} className="card  bg-base-100 card-lg shadow-sm ">
                         <div className="card-body">

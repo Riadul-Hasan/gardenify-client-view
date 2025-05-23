@@ -4,6 +4,7 @@ import TipsSection from './TipsSection';
 import Additional1 from './Additional1';
 import Additional2 from './Additional2';
 import HeroSection from './HeroSection';
+import Marquee from 'react-fast-marquee';
 
 
 
@@ -23,10 +24,13 @@ const Home = () => {
                 <TipsSection></TipsSection>
             </div>
 
-            <div className='mt-20 bg-gradient-to-r from-green-100 via-gray-300 to-lime-100 p-10 mb-20'>
+            <div className=' bg-gradient-to-r from-green-100 via-gray-300 to-lime-100 p-10 '>
                 <Additional1></Additional1>
             </div>
-            <div className='mt-20 bg-base-200  mb-20'>
+            <div className='py-10'>
+                <Marquee>🌱 Grow Green, Stay Clean! Share Your Gardening Tips & Tricks! 🌼</Marquee>
+            </div>
+            <div className=' bg-base-200  '>
                 <Additional2></Additional2>
             </div>
 

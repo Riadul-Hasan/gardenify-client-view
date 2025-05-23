@@ -54,8 +54,8 @@ const MyTips = () => {
     return (
 
 
-        <div className='container mx-auto   lg:mb-32'>
-            <h2 className='text-3xl text-green-600 text-center font-bold py-20 dark:text-red-500'>My Tips</h2>
+        <div className='container mx-auto mb-32'>
+            <h2 className='text-3xl text-green-600 text-center font-bold py-10 dark:text-red-500'>My Tips</h2>
 
 
             <div className="avatar flex items-center justify-center">

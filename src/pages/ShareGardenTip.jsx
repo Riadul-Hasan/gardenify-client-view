@@ -40,7 +40,7 @@ const ShareGardenTip = () => {
     }
     return (
         <div className='bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 '>
-            <div className='py-10 w-4/9 mx-auto '>
+            <div className='pb-10 lg:w-4/9 mx-auto '>
 
                 <div className='text-center py-8'>
                     <h2 className='text-4xl font-semibold py-2 text-green-600'>Share Tip</h2>

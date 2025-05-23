@@ -7,7 +7,7 @@ const BrowseTips = () => {
     console.log(tipsData)
     return (
         <div className='container mx-auto py-10 min-h-[calc(100vh-300px)]'>
-            <h2 className='text-2xl text-green-800 text-center font-bold py-20'>All Gardening Tips Here</h2>
+            <h2 className='text-2xl text-green-800 text-center font-bold p-10 lg:p-0 lg:py-20'>All Gardening Tips Here</h2>
             <div>
 
                 <div className="overflow-x-auto w-3/4 mx-auto">
@@ -53,8 +53,8 @@ const BrowseTips = () => {
                                             <p>{tips.difficulty}</p>
                                         </td>
 
-                                        <td className='px-6 border border-base-300'>
-                                            <Link to={`/tipsDetails/${tips._id}`} className="btn btn-ghost bg-green-600 flex justify-center items-center w-3/4 mx-auto text-white btn-xs">See More</Link>
+                                        <td className='lg:px-6 border border-base-300'>
+                                            <Link to={`/tipsDetails/${tips._id}`} className="btn  bg-green-600 flex justify-center items-center lg:w-3/4 lg:mx-auto text-white lg:btn-xs">See More</Link>
                                         </td>
                                     </tr>)
                             }

@@ -5,9 +5,9 @@ const ExploreGardeners = () => {
     const exploreData = useLoaderData()
     console.log(exploreData)
     return (
-        <div className='py-20'>
-            <h2 className='text-4xl font-semibold container mx-auto py-8'>Explore Us</h2>
-            <div className='container mx-auto  grid grid-cols-3 gap-6'>
+        <div className='py-10 lg:py-20 '>
+            <h2 className='text-4xl font-semibold container mx-auto py-8 p-4 '>Explore Us</h2>
+            <div className='container mx-auto  grid grid-cols-1 p-4 lg:p-0 lg:grid-cols-3 gap-6'>
 
                 {
                     exploreData.map(explore => <div className="card bg-base-100  shadow-sm border border-green-400 pt-6">
