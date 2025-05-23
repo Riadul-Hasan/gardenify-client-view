@@ -54,7 +54,7 @@ const BrowseTips = () => {
                                         </td>
 
                                         <td className='px-6 border border-base-300'>
-                                            <Link to={`/tipsDetails/${tips._id}`} className="btn btn-ghost bg-green-600 flex justify-center items-center w-2/4 mx-auto text-white btn-xs">See More</Link>
+                                            <Link to={`/tipsDetails/${tips._id}`} className="btn btn-ghost bg-green-600 flex justify-center items-center w-3/4 mx-auto text-white btn-xs">See More</Link>
                                         </td>
                                     </tr>)
                             }

@@ -6,19 +6,23 @@ import Additional2 from './Additional2';
 import HeroSection from './HeroSection';
 
 
+
+
+
 const Home = () => {
+
     return (
         <>
 
             <HeroSection></HeroSection>
-            <div className=' container mx-auto '>
-                <div className='py-20  container mx-auto'>
-                    <FeatureGarden></FeatureGarden>
-                </div>
-                <div className='bg-blue-50 py-10 mt-20'>
-                    <TipsSection></TipsSection>
-                </div>
+
+            <div className='py-20  container mx-auto'>
+                <FeatureGarden></FeatureGarden>
             </div>
+            <div className='bg-blue-50 py-10 mt-20'>
+                <TipsSection></TipsSection>
+            </div>
+
             <div className='mt-20 bg-gradient-to-r from-green-100 via-gray-300 to-lime-100 p-10 mb-20'>
                 <Additional1></Additional1>
             </div>

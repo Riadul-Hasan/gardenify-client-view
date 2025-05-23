@@ -31,13 +31,14 @@ const Login = () => {
         console.log(email, password)
         signInUser(email, password)
             .then(result => {
-                console.log(result.user)
+                // console.log(result.user)
                 setUser(result.user)
                 Swal.fire({
                     title: "Welcome back! Login Success",
                     icon: "success",
                     draggable: true
                 });
+                navigate("/")
             })
             .catch(error => {
                 console.log(error)

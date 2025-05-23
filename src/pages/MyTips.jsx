@@ -55,7 +55,7 @@ const MyTips = () => {
 
 
         <div className='container mx-auto   lg:mb-32'>
-            <h2 className='text-3xl text-green-800 text-center font-bold py-20'>My Tips</h2>
+            <h2 className='text-3xl text-green-600 text-center font-bold py-20 dark:text-red-500'>My Tips</h2>
 
             <div className="avatar flex items-center justify-center">
                 <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring-2 ring-offset-2">

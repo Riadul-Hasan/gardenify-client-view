@@ -5,6 +5,9 @@ import Garden1 from "../assets/garden1.jpg"
 import Garden2 from "../assets/garden2.jpg"
 import Garden3 from "../assets/garden3.jpg"
 
+
+
+
 const HeroSection = () => {
     const banners = [
         {
@@ -32,6 +35,7 @@ const HeroSection = () => {
 
     return (
         <div className="w-full h-[70vh] md:h-[80vh] bg-gray-100">
+
             <Swiper
                 slidesPerView={1}
                 spaceBetween={0}

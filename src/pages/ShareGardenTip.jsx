@@ -10,14 +10,18 @@ const ShareGardenTip = () => {
         const form = e.target;
         const formData = new FormData(form)
         const tipsData = Object.fromEntries(formData.entries())
-        console.log(tipsData)
+        // console.log(tipsData)
+        const dataForDB = {
+            ...tipsData,
+            totalLiked: 0
+        }
 
         fetch("http://localhost:3000/shareTIps", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify(tipsData)
+            body: JSON.stringify(dataForDB)
         })
             .then(result => result.json())
             .then(data => {
@@ -39,13 +43,13 @@ const ShareGardenTip = () => {
             <div className='py-10 w-4/9 mx-auto '>
 
                 <div className='text-center py-8'>
-                    <h2 className='text-4xl font-semibold py-2 text-green-800'>Share Tip</h2>
+                    <h2 className='text-4xl font-semibold py-2 text-green-600'>Share Tip</h2>
                     <p>Share your valuable opinion</p>
                 </div>
 
 
 
-                <form onSubmit={handleAddTips} className=' p-6 bg-base-300 rounded-2xl'>
+                <form data-theme="light" onSubmit={handleAddTips} className=' p-6 bg-base-300 rounded-2xl'>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 '>
                         <fieldset className="fieldset bg-white border-black rounded-box  border p-4">
 

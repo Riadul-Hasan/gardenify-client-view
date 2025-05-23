@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaLocationDot, FaRegStar } from 'react-icons/fa6';
+import { Typewriter } from 'react-simple-typewriter'
 
 const FeatureCard = ({ feature }) => {
     const { profileImage, name, specialty, location, bio } = feature;
@@ -17,7 +18,18 @@ const FeatureCard = ({ feature }) => {
             </figure>
 
             <div className="card-body p-5">
-                <h2 className="card-title text-xl font-bold text-gray-800 mb-2">{name}</h2>
+
+                <h2 className="card-title text-xl font-bold text-gray-800 mb-2">
+                    <Typewriter
+                        loop={1}
+                        cursor
+                        cursorStyle=""
+                        typeSpeed={200}
+                        deleteSpeed={50}
+                        delaySpeed={1000}
+                        words={[name]}
+                    ></Typewriter>
+                </h2>
                 <p className='flex items-center gap-3'><FaRegStar />{specialty}</p>
                 <p className='flex  items-center gap-3'><FaLocationDot />{location}</p>
                 <p className="text-cyan-800 mb-4 line-clamp-2">

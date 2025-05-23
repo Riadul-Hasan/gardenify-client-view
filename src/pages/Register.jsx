@@ -86,6 +86,7 @@ const Register = () => {
                             });
                         }
                     })
+                navigate("/")
 
             })
             .catch(() => {

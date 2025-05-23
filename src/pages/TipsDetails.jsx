@@ -3,10 +3,36 @@ import { BiSolidCategory } from 'react-icons/bi';
 import { FaRegClock, FaUser } from 'react-icons/fa';
 import { IoBookOutline } from 'react-icons/io5';
 import { useLoaderData } from 'react-router';
+import Swal from 'sweetalert2';
 
 const TipsDetails = () => {
     const details = useLoaderData()
-    console.log(details)
+    // console.log(details)
+
+
+    const handleIncrementLike = () => {
+        fetch(`http://localhost:3000/shareTips/${details._id}`, {
+            method: "PATCH",
+            headers: {
+                "content-type": "application/json"
+            },
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.matchedCount) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Like added for this tip!",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+
+
+    }
     return (
 
 
@@ -59,8 +85,8 @@ const TipsDetails = () => {
                     <p className='text-gray-600'>{details.description}</p>
                 </div>
 
-                <button className="btn w-full max-w-xs mx-auto bg-gradient-to-r from-green-500 to-green-600 border-0 text-white text-lg font-semibold py-4 rounded-full shadow-md hover:from-green-600 hover:to-green-700 transition-all hover:shadow-lg active:scale-95">
-                    Add Checklist
+                <button onClick={handleIncrementLike} className="btn w-full max-w-xs mx-auto bg-gradient-to-r from-green-500 to-green-600 border-0 text-white text-lg font-semibold py-4 rounded-full shadow-md hover:from-green-600 hover:to-green-700 transition-all hover:shadow-lg active:scale-95">
+                    Like This Tip
                 </button>
             </div>
         </div>
