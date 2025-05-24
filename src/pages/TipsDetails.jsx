@@ -37,7 +37,8 @@ const TipsDetails = () => {
 
 
         <div className='container max-w-4xl mx-auto py-20 px-4'>
-            <div className="card bg-white shadow-lg rounded-3xl p-8 text-center">
+            <title>Tip Details</title>
+            <div className="card bg-white border border-green-400 shadow-lg rounded-3xl p-8 text-center">
 
                 <figure className="flex justify-center -mt-20 mb-6">
                     <div className="w-64 h-64 rounded-full border-4 border-white  overflow-hidden">
@@ -81,7 +82,7 @@ const TipsDetails = () => {
                     </div>
                 </div>
                 <div className='py-6'>
-                    <p className='text-2xl font-bold py-2'>Description: </p>
+                    <p className='text-2xl font-bold py-2 text-gray-600'>Description: </p>
                     <p className='text-gray-600'>{details.description}</p>
                 </div>
 

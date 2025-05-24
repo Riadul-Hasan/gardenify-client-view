@@ -12,18 +12,18 @@ const TipsSection = () => {
     return (
         <div className='container mx-auto'>
             <div className='space-y-4 text-center py-4'>
-                <h2 className='font-bold text-4xl  text-green-800'>Top Trending Tips</h2>
+                <h2 className='font-bold text-4xl  text-base-content'>Top Trending Tips</h2>
                 <p className='text-gray-500'>Discover wisdom from fellow garden enthusiasts</p>
 
             </div>
 
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-6 p-4'>
                 {
-                    tips.map(tip => <div key={tip._id} className="card  bg-base-100 card-lg shadow-sm ">
+                    tips.map(tip => <div key={tip._id} className="card  bg-green-50 border card-lg shadow-sm ">
                         <div className="card-body">
                             <div className=''>
                                 {/* <h2 className="px-2 flex justify-center items-center rounded-2xl  font-semibold  bg-green-100 ">{tip.category}</h2> */}
-                                <p className='flex gap-2'><FaHeart size={25} color='red' /> <span className='font-bold'>{tip.totalLiked}</span></p>
+                                <p className='flex gap-2'><FaHeart size={25} color='red' /> <span className='font-bold text-green-500'>{tip.totalLiked}</span></p>
                             </div>
 
 
@@ -32,10 +32,10 @@ const TipsSection = () => {
                                     <img
                                         className='absolute w-full h-full object-cover rounded-lg'
                                         src={tip.imageUrl}
-                                        alt={tip.title}
+
                                     />
                                 </div>
-                                <p className='text-lg sm:text-xl font-semibold line-clamp-2'>
+                                <p className='text-lg sm:text-xl font-semibold line-clamp-2 text-cyan-600'>
                                     {tip.title}
                                 </p>
                             </div>

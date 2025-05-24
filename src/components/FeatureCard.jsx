@@ -30,14 +30,14 @@ const FeatureCard = ({ feature }) => {
                         words={[name]}
                     ></Typewriter>
                 </h2>
-                <p className='flex items-center gap-3'><FaRegStar />{specialty}</p>
-                <p className='flex  items-center gap-3'><FaLocationDot />{location}</p>
+                <p className='flex items-center gap-3 text-cyan-800'><FaRegStar />{specialty}</p>
+                <p className='flex  items-center gap-3 text-cyan-800'><FaLocationDot />{location}</p>
                 <p className="text-cyan-800 mb-4 line-clamp-2">
                     {bio}
                 </p>
 
                 <div className="card-actions justify-end">
-                    <button className="btn btn-sm bg-green-600 hover:bg-green-700 text-white">
+                    <button className="btn btn-sm bg-green-600 hover:bg-green-700 border-none text-white">
                         View Profile
                     </button>
                 </div>

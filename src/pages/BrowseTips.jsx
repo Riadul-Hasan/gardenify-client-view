@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router';
+import { Link, Navigate, useLoaderData } from 'react-router';
 import BrowseCard from './BrowseCard';
 
 const BrowseTips = () => {
@@ -7,7 +7,8 @@ const BrowseTips = () => {
     console.log(tipsData)
     return (
         <div className='container mx-auto py-10 min-h-[calc(100vh-300px)]'>
-            <h2 className='text-2xl text-green-800 text-center font-bold p-10 lg:p-0 lg:py-20'>All Gardening Tips Here</h2>
+            <title>Browse Tips</title>
+            <h2 className='text-2xl text-green-600 text-center font-bold p-10 lg:p-0 lg:py-20'>All Gardening Tips Here</h2>
             <div>
 
                 <div className="overflow-x-auto w-3/4 mx-auto">

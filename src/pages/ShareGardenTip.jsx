@@ -39,7 +39,8 @@ const ShareGardenTip = () => {
 
     }
     return (
-        <div className='bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 '>
+        <div className=' '>
+            <title>Share Tip</title>
             <div className='pb-10 lg:w-4/9 mx-auto '>
 
                 <div className='text-center py-8'>
@@ -49,7 +50,7 @@ const ShareGardenTip = () => {
 
 
 
-                <form data-theme="light" onSubmit={handleAddTips} className=' p-6 bg-base-300 rounded-2xl'>
+                <form data-theme="light" onSubmit={handleAddTips} className=' p-8 bg-base-200 border-2 border-green-500 rounded-2xl'>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 '>
                         <fieldset className="fieldset bg-white border-black rounded-box  border p-4">
 
@@ -128,6 +129,7 @@ const ShareGardenTip = () => {
                         <input type="submit" className='btn w-full bg-green-600 text-white' value="Submit" />
                     </div>
                 </form>
+
             </div>
         </div>
     );

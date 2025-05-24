@@ -6,6 +6,7 @@ const ExploreGardeners = () => {
     console.log(exploreData)
     return (
         <div className='py-10 lg:py-20 '>
+            <title>Explore</title>
             <h2 className='text-4xl font-semibold container mx-auto py-8 p-4 '>Explore Us</h2>
             <div className='container mx-auto  grid grid-cols-1 p-4 lg:p-0 lg:grid-cols-3 gap-6'>
 

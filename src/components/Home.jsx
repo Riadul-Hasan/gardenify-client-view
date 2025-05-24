@@ -15,16 +15,17 @@ const Home = () => {
     return (
         <>
 
+
             <HeroSection></HeroSection>
 
             <div className='py-20  container mx-auto'>
                 <FeatureGarden></FeatureGarden>
             </div>
-            <div className='bg-blue-50 py-10 mt-20'>
+            <div className=' py-10 mt-20'>
                 <TipsSection></TipsSection>
             </div>
 
-            <div className=' bg-gradient-to-r from-green-100 via-gray-300 to-lime-100 p-10 '>
+            <div className='bg-green-50  p-10 '>
                 <Additional1></Additional1>
             </div>
             <div className='py-10'>
@@ -33,6 +34,7 @@ const Home = () => {
             <div className=' bg-base-200  '>
                 <Additional2></Additional2>
             </div>
+
 
         </>
     );

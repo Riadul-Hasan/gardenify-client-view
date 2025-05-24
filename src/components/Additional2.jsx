@@ -16,7 +16,7 @@ const Additional2 = () => {
                     <p className="mb-5 text-blue-200">
                         Our platform is designed to connect passionate gardeners and horticulturists with top gardening and landscaping opportunities. Discover, filter, and cultivate your dream garden with an easy and inspiring experience.                    </p>
                     <div className='flex justify-around w-auto lg:w-3/5 mx-auto '>
-                        <button className="btn bg-gradient-to-r from-green-500  to-green-200 border-none ">Explore Opportunities</button>
+                        <button className="btn bg-gradient-to-r from-green-500  to-green-300 text-gray-600 border-none ">Explore Opportunities</button>
                         <button className="btn bg-transparent text-white">Learn More</button>
                     </div>
                 </div>

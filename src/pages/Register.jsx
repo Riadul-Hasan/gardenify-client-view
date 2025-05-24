@@ -101,12 +101,12 @@ const Register = () => {
 
     }
     return (
-        <div className="bg-gradient-to-br from-green-50 to-cyan-100 min-h-[calc(100vh-320px)]  flex flex-col items-center justify-center px-4">
+        <div className=" min-h-[calc(100vh-320px)]  flex flex-col items-center justify-center px-4">
 
-            <div className="card  bg-white rounded-2xl  w-full max-w-sm shrink-0  mx-auto mt-20 mb-20 ">
-                <div className='p-4 rounded-t-2xl bg-gradient-to-r from-blue-500 to-cyan-600'>
-                    <h2 className='text-2xl font-bold text-center text-white'>Create Your Account</h2>
-                    <p className='text-sm text-center text-white'>Join Us Today</p>
+            <div className="card  bg-gradient-to-br from-green-50 to-cyan-100 rounded-2xl  w-full max-w-sm shrink-0  mx-auto mt-20 mb-20 ">
+                <div className='p-4 rounded-t-2xl bg-gradient-to-r from-green-600 to-green-500'>
+                    <h2 className='text-2xl font-bold text-center text-base-content'>Create Your Account</h2>
+                    <p className='text-sm text-center text-base-content'>Join Us Today</p>
                 </div>
                 <form onSubmit={handleRegister} className="card-body">
                     <fieldset className="fieldset ">
@@ -125,11 +125,11 @@ const Register = () => {
                             error && <p className='text-xs font-semibold text-red-600'>{error}</p>
                         }
 
-                        <button className="btn bg-gradient-to-r from-blue-500 to-cyan-600 text-white mt-4">Create Account</button>
+                        <button className="btn bg-gradient-to-r from-blue-500 to-cyan-600 text-white mt-4 border-none">Create Account</button>
                     </fieldset>
                 </form>
 
-                <div className="divider text-gray-400 text-xs px-4">Or Register With</div>
+                <div className="divider text-gray-600 text-xs px-4">Or Register With</div>
 
 
                 <div className='text-center mb-4'>
@@ -138,7 +138,7 @@ const Register = () => {
                         Sign In with Google</button>
                 </div>
 
-                <p className='text-center font-semibold pb-4'>Already have an account? <Link to="/login" className='text-red-500 font-semibold'>Login Now</Link></p>
+                <p className='text-center font-semibold pb-4 text-gray-700'>Already have an account? <Link to="/login" className='text-red-500 font-semibold'>Login Now</Link></p>
             </div>
 
 
