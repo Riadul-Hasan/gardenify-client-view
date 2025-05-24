@@ -25,7 +25,7 @@ const Home = () => {
                 <TipsSection></TipsSection>
             </div>
 
-            <div className='bg-green-50  p-10 '>
+            <div className='border-b-2 border-gray-300  p-10 '>
                 <Additional1></Additional1>
             </div>
             <div className='py-10'>

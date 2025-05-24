@@ -89,8 +89,8 @@ const MyTips = () => {
                             {myTip.map(tips => (
                                 <tr key={tips._id}>
                                     <td className='px-6 border border-base-300'>
-                                        <div className="flex items-center gap-3 px-6 ">
-                                            <div className="font-bold ">{tips.title}</div>
+                                        <div className="flex items-center gap-3 lg:px-6 ">
+                                            <div className="lg:font-bold text-sm ">{tips.title}</div>
                                         </div>
                                     </td>
                                     <td className='px-6 border border-base-300 '>{tips.description}</td>
