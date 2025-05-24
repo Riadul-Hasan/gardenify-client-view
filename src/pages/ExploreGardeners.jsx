@@ -11,7 +11,7 @@ const ExploreGardeners = () => {
             <div className='container mx-auto  grid grid-cols-1 p-4 lg:p-0 lg:grid-cols-3 gap-6'>
 
                 {
-                    exploreData.map(explore => <div className="card bg-base-100  shadow-sm border border-green-400 pt-6">
+                    exploreData.map(explore => <div key={explore.id} className="card bg-base-100  shadow-sm border border-green-400 pt-6">
 
                         <div className="avatar flex justify-center">
                             <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring-2 ring-offset-2">
