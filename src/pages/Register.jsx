@@ -31,7 +31,7 @@ const Register = () => {
         const form = e.target;
         const formData = new FormData(form)
         const { email, password, name, photoUrl, ...userProfile } = Object.fromEntries(formData.entries())
-        console.log(email, password, photoUrl, userProfile)
+        // console.log(email, password, photoUrl, userProfile)
 
 
 

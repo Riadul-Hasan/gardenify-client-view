@@ -4,7 +4,7 @@ import BrowseCard from './BrowseCard';
 
 const BrowseTips = () => {
     const tipsData = useLoaderData()
-    console.log(tipsData)
+    // console.log(tipsData)
     return (
         <div className='container mx-auto py-10 min-h-[calc(100vh-300px)]'>
             <title>Browse Tips</title>

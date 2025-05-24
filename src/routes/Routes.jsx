@@ -55,7 +55,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/myTips',
-
+                hydrateFallbackElement: <Loading></Loading>,
                 element: <PrivateRoute><MyTips></MyTips></PrivateRoute>
             },
             {

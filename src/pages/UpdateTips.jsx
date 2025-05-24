@@ -15,7 +15,7 @@ const UpdateTips = () => {
         const form = e.target;
         const formData = new FormData(form)
         const updatedTip = Object.fromEntries(formData.entries())
-        console.log(updatedTip)
+        // console.log(updatedTip)
 
         // send update tip to database
         fetch(`https://gardening-server-theta.vercel.app/shareTips/${singleData._id}`, {

@@ -1,6 +1,9 @@
 Project Overview for Gardenify
 -----------------
 
+Project Name: Gardenify
+Live Site: https://gardening-auth.web.app/
+
 ------------- Description----------------
 
 Gardenify is a responsive web application designed to bridge the gap between gardening enthusiasts and expert advice. With intuitive plant care tracking, community sharing features, and personalized gardening tips, the platform helps both novice and experienced gardeners cultivate their green spaces more effectively.

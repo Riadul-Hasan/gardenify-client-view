@@ -3,7 +3,7 @@ import { useLoaderData } from 'react-router';
 
 const ExploreGardeners = () => {
     const exploreData = useLoaderData()
-    console.log(exploreData)
+    // console.log(exploreData)
     return (
         <div className='py-10 lg:py-20 '>
             <title>Explore</title>
