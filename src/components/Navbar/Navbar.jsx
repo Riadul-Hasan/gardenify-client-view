@@ -156,10 +156,24 @@ const Navbar = () => {
                         `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
                         <li>Explore Gardeners</li>
                     </NavLink>
-                    <NavLink to="/browseTips" className={({ isActive }) =>
+                    <NavLink to="/about" className={({ isActive }) =>
                         `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
-                        <li>Browse Tips</li>
+                        <li>About Us</li>
                     </NavLink>
+                    <NavLink to="/contact" className={({ isActive }) =>
+                        `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
+                        <li>Contact</li>
+                    </NavLink>
+                    <NavLink to="/explore" className={({ isActive }) =>
+                        `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
+                        <li>Your Thoughts</li>
+                    </NavLink>
+                    {
+                        user && <NavLink to="/browseTips" className={({ isActive }) =>
+                            `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
+                            <li>Browse Tips</li>
+                        </NavLink>
+                    }
                     {
                         user && <NavLink to="/shareTips" className={({ isActive }) =>
                             `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
