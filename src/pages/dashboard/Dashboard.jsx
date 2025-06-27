@@ -1,10 +1,11 @@
 import React, { use, useEffect, useState } from 'react';
-import { Link, Outlet, useLoaderData, useLocation } from 'react-router';
+import { Link, Outlet, useLoaderData, useLocation, useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiHome, FiPlusCircle, FiList, FiUser, FiLogOut, FiMenu, FiX, FiShare2, FiThumbsUp, FiHeart, FiMessageSquare, FiGrid, FiClock, FiUsers, FiSun } from 'react-icons/fi';
 import { FaLeaf, FaSeedling, FaTree } from 'react-icons/fa';
 import { AuthContext } from '../../provider/AuthProvider';
 import { RiFileAddFill } from 'react-icons/ri';
+import Swal from 'sweetalert2';
 
 const Dashboard = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -12,8 +13,9 @@ const Dashboard = () => {
     const data = useLoaderData()
     const [totalLikes, setTotalLikes] = useState(0);
     const [tipCount, setTipCount] = useState(0)
-    const { user } = use(AuthContext)
-    console.log(data, user)
+    const { user, logOut } = use(AuthContext)
+    const navigate = useNavigate()
+    // console.log(data, user)
     useEffect(() => {
         fetch("https://gardening-server-theta.vercel.app/dashboard/totalLikes")
             .then(res => res.json())
@@ -30,11 +32,29 @@ const Dashboard = () => {
 
 
 
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                Swal.fire({
+                    icon: "error",
+                    title: "You are Logged Out",
+                    text: "",
+
+                });
+                navigate("/login")
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
+
     // Mock data - replace with your actual data
     const stats = [
         { title: "Total Tips", value: data.length, icon: <FaLeaf className="text-emerald-500" />, change: "+12%", color: "bg-emerald-100" },
         { title: "My Tips", value: tipCount, icon: <FaSeedling className="text-amber-500" />, change: "+5%", color: "bg-amber-100" },
-        { title: "Plant Categories", value: 3, icon: <FaTree className="text-teal-500" />, change: "+2", color: "bg-teal-100" },
+        { title: "Plant Categories", value: 6, icon: <FaTree className="text-teal-500" />, change: "+2", color: "bg-teal-100" },
         { title: "Likes Received", value: totalLikes, icon: <FiUser className="text-purple-500" />, change: "+0.54%", color: "bg-purple-100" }
     ];
 
@@ -167,7 +187,7 @@ const Dashboard = () => {
                                         <p className="text-sm text-gray-500">{user?.email}</p>
                                     </div>
                                 </div>
-                                <button className="flex items-center w-full p-3 mt-2 rounded-lg text-red-500 hover:bg-red-50">
+                                <button onClick={handleLogout} className="flex items-center w-full p-3 mt-2 rounded-lg text-red-500 hover:bg-red-50">
                                     <FiLogOut className="mr-3" />
                                     Logout
                                 </button>
@@ -189,7 +209,7 @@ const Dashboard = () => {
                                 transition={{ duration: 0.5 }}
                                 className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl p-6 text-white shadow-lg"
                             >
-                                <h1 className="text-2xl font-bold">Welcome back, Gardener!</h1>
+                                <h1 className="text-2xl font-bold">Welcome back, {user?.displayName}</h1>
                                 <p className="mt-2">Here's what's happening with your gardening community</p>
                             </motion.div>
 

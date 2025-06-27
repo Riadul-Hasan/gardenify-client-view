@@ -3,6 +3,7 @@ import Logo from "../../assets/logo-transparent.png"
 import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { FiLogOut } from 'react-icons/fi';
 
 const Navbar = () => {
     const { user, logOut } = use(AuthContext)
@@ -24,7 +25,7 @@ const Navbar = () => {
     //     }
     // }
 
-    const handleLogout = () => [
+    const handleLogout = () => {
         logOut()
             .then(() => {
                 Swal.fire({
@@ -38,7 +39,7 @@ const Navbar = () => {
             .catch(error => {
                 console.log(error)
             })
-    ]
+    }
 
     return (
         <div className="navbar bg-gradient-to-r bg-[#edfaf5] px-8 py-4 rounded-lg shadow-lg sticky top-0 z-50">
@@ -184,18 +185,7 @@ const Navbar = () => {
                         <li>Contact</li>
                     </NavLink>
 
-                    {
-                        user && <NavLink to="/shareTips" className={({ isActive }) =>
-                            `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
-                            <li>Share a Tip</li>
-                        </NavLink>
-                    }
-                    {
-                        user && <NavLink to="/myTips" className={({ isActive }) =>
-                            `px-4 py-2 rounded-lg font-medium transition-all ${isActive ? 'bg-white text-green-600' : 'hover:bg-green-600 hover:bg-opacity-30'}`}>
-                            <li>My Tips</li>
-                        </NavLink>
-                    }
+
 
                     {/* Auth buttons */}
                     <div className="flex items-center ml-2 gap-3">
@@ -236,16 +226,18 @@ const Navbar = () => {
                                             )
                                         }
                                     </summary>
-                                    <ul className="p-2 shadow menu dropdown-content z-[1] bg-white rounded-box w-52 mt-2 text-green-700">
-                                        <li>
-                                            <button
-                                                onClick={handleLogout}
-                                                className="text-left hover:bg-green-100 rounded-lg p-2 font-medium"
-                                            >
-                                                Logout
-                                            </button>
-                                        </li>
-                                    </ul>
+                                    {
+                                        user && <ul className="p-2 shadow menu dropdown-content z-[1] bg-white rounded-box w-52 mt-2 text-green-700">
+                                            <li>
+                                                <button
+                                                    onClick={handleLogout}
+                                                    className="text-left hover:bg-green-100 rounded-lg p-2 font-medium"
+                                                >
+                                                    Logout
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    }
                                 </details>
                             </li>
                         )
@@ -255,16 +247,18 @@ const Navbar = () => {
 
             {/* CTA Button */}
             <div className="navbar-end">
-                <ul className=" shadow menu dropdown-content z-[1] bg-base-100    rounded-box  ">
-                    <li>
-                        <button
-                            onClick={handleLogout}
-                            className="text-left hover:bg-green-100 rounded-lg  font-medium"
-                        >
-                            Logout
-                        </button>
-                    </li>
-                </ul>
+
+                {
+                    user && <ul className=" shadow menu dropdown-content z-[1] bg-base-100 rounded-box">
+                        <li>
+                            <button className="flex items-center w-full rounded-lg text-red-500 hover:bg-red-50">
+                                <FiLogOut className="mr-3" />
+                                Logout
+                            </button>
+
+                        </li>
+                    </ul>
+                }
             </div>
         </div>
     );
