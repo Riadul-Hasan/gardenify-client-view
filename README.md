@@ -38,6 +38,7 @@ Gardenify bridges the gap between gardening enthusiasts and expert advice. This 
 - React Tooltip
 - React Swiper
 - React Icons
+- React Framer Motion
 
 ## 🚀 Getting Started
 
