@@ -15,6 +15,9 @@ import TipsDetails from "../pages/TipsDetails";
 import UpdateTips from "../pages/UpdateTips";
 import ErrorPage from "../pages/ErrorPage";
 import Loading from "../components/Loading";
+import Dashboard from "../pages/dashboard/Dashboard";
+import AboutUs from "../pages/pageAdded/AboutUs";
+import ContactUs from "../pages/pageAdded/ContactUs";
 
 export const router = createBrowserRouter([
     {
@@ -38,6 +41,14 @@ export const router = createBrowserRouter([
                 hydrateFallbackElement: <Loading></Loading>,
                 loader: () => fetch("https://gardening-server-theta.vercel.app/shareTips"),
                 Component: BrowseTips
+            },
+            {
+                path: "/aboutUs",
+                Component: AboutUs
+            },
+            {
+                path: "/contactUs",
+                Component: ContactUs
             },
             {
                 path: "/register",
@@ -71,6 +82,26 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><UpdateTips></UpdateTips></PrivateRoute>
             }
 
+        ]
+    },
+    {
+        path: "/dashboard",
+        loader: () => fetch("https://gardening-server-theta.vercel.app/shareTips"),
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        children: [
+            {
+                path: "shareTips",
+
+                element: <PrivateRoute>
+                    <ShareGardenTip></ShareGardenTip>
+                </PrivateRoute>
+
+            },
+            {
+                path: 'myTips',
+                hydrateFallbackElement: <Loading></Loading>,
+                element: <PrivateRoute><MyTips></MyTips></PrivateRoute>
+            },
         ]
     },
     {

@@ -1,7 +1,8 @@
+
 import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiFilter, FiChevronUp, FiChevronDown, FiX } from 'react-icons/fi';
+import { FiFilter, FiChevronDown, FiX } from 'react-icons/fi';
 
 const BrowseTips = () => {
     const tipsData = useLoaderData();
@@ -12,9 +13,9 @@ const BrowseTips = () => {
     });
     const [showFilters, setShowFilters] = useState(false);
 
-    // Get unique categories and difficulties for filter options
+    // Get unique categories and difficulties
     const categories = [...new Set(tipsData.map(tip => tip.category))];
-    const difficulties = ['Easy', 'Medium', 'Hard'];
+    const difficulties = [...new Set(tipsData.map(tip => tip.difficulty))];
 
     // Apply sorting
     const sortedTips = [...tipsData].sort((a, b) => {
@@ -58,109 +59,246 @@ const BrowseTips = () => {
         });
     };
 
+    // Animation variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1
+            }
+        }
+    };
+
     const cardVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.5
+                duration: 0.5,
+                ease: "easeOut"
+            }
+        },
+        hover: {
+            y: -8,
+            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)",
+            transition: {
+                duration: 0.3,
+                ease: "easeInOut"
             }
         }
     };
 
-    return (
-        <div className='container mx-auto py-10 min-h-[calc(100vh-300px)] px-4'>
-            <title>Browse Tips</title>
+    const filterPanelVariants = {
+        hidden: {
+            opacity: 0,
+            height: 0,
+            paddingTop: 0,
+            paddingBottom: 0,
+            marginBottom: 0
+        },
+        visible: {
+            opacity: 1,
+            height: "auto",
+            paddingTop: "1.5rem",
+            paddingBottom: "1.5rem",
+            marginBottom: "2rem",
+            transition: {
+                duration: 0.3,
+                ease: "easeInOut"
+            }
+        }
+    };
 
+    // Difficulty badge colors
+    const getDifficultyColor = (difficulty) => {
+        switch (difficulty) {
+            case 'Easy': return 'from-emerald-400 to-teal-500';
+            case 'Medium': return 'from-amber-400 to-orange-500';
+            case 'Hard': return 'from-rose-400 to-pink-500';
+            default: return 'from-gray-400 to-gray-600';
+        }
+    };
+
+    return (
+        <div className='container mx-auto px-4 sm:px-6 py-12 min-h-[calc(100vh-300px)]'>
             {/* Header */}
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-center mb-12"
+                className="text-center mb-16"
             >
-                <h2 className='text-3xl md:text-4xl text-green-600 font-bold mb-4'>All Gardening Tips</h2>
-                <p className='text-gray-600 max-w-2xl mx-auto'>
-                    Discover helpful gardening tips and techniques to grow your perfect garden
+                <h2 className='text-2xl md:text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-emerald-700'>
+                    Garden Mastery
+                </h2>
+                <p className='text-md text-gray-600 max-w-2xl mx-auto'>
+                    Cultivate your skills with our premium gardening collection
                 </p>
             </motion.div>
 
-            {/* Controls */}
-            <div className='flex flex-col md:flex-row justify-between items-center mb-8 gap-4'>
-                <div className='flex items-center gap-4'>
-                    <button
+            {/* Filter and Sort Controls */}
+            <motion.div
+                className='flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-6'
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+            >
+                {/* Filter Button */}
+                <div className='flex items-center gap-4 w-full md:w-auto'>
+                    <motion.button
                         onClick={() => setShowFilters(!showFilters)}
-                        className='btn btn-outline btn-primary flex items-center gap-2'
+                        className={`flex items-center gap-3 px-6 py-3 rounded-xl font-medium transition-all ${showFilters ? 'bg-emerald-600 text-white shadow-lg' : 'bg-white text-emerald-600 border border-emerald-200 shadow-sm hover:shadow-md'}`}
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.98 }}
                     >
-                        <FiFilter /> Filters
-                    </button>
+                        <FiFilter className="text-lg" />
+                        <span>Filters</span>
+                        {(filters.category || filters.difficulty) && (
+                            <span className="w-5 h-5 flex items-center justify-center bg-white text-emerald-600 text-xs font-bold rounded-full">
+                                {(filters.category ? 1 : 0) + (filters.difficulty ? 1 : 0)}
+                            </span>
+                        )}
+                    </motion.button>
 
-                    {filters.category || filters.difficulty ? (
+                    {(filters.category || filters.difficulty) && (
                         <button
                             onClick={resetFilters}
-                            className='btn btn-ghost text-error flex items-center gap-2'
+                            className="flex items-center gap-2 text-sm text-gray-500 hover:text-emerald-600 transition-colors"
                         >
-                            <FiX /> Clear Filters
+                            <FiX className="text-lg" />
+                            Clear filters
                         </button>
-                    ) : null}
+                    )}
                 </div>
 
-                <div className="dropdown dropdown-end">
-                    <label tabIndex={0} className="btn btn-outline">
-                        Sort by: {sortConfig.key} ({sortConfig.direction})
-                    </label>
-                    <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><button onClick={() => requestSort('title')}>Title</button></li>
-                        <li><button onClick={() => requestSort('category')}>Category</button></li>
-                        <li><button onClick={() => requestSort('difficulty')}>Difficulty</button></li>
-                    </ul>
+                {/* Sort Dropdown */}
+                <div className="relative w-full md:w-auto">
+                    <motion.div
+                        className="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-5 py-3 shadow-sm cursor-pointer"
+                        whileHover={{ boxShadow: "0 5px 15px rgba(0,0,0,0.05)" }}
+                        onClick={() => document.getElementById('sort-dropdown').classList.toggle('hidden')}
+                    >
+                        <span className="text-gray-600">Sort by:</span>
+                        <span className="font-medium text-emerald-700 capitalize">
+                            {sortConfig.key} ({sortConfig.direction})
+                        </span>
+                        <FiChevronDown className="text-gray-400 ml-1 transition-transform" />
+                    </motion.div>
+
+                    <div
+                        id="sort-dropdown"
+                        className="hidden absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg z-10 border border-gray-100 overflow-hidden"
+                    >
+                        <ul className="py-1">
+                            <li>
+                                <button
+                                    onClick={() => {
+                                        requestSort('title');
+                                        document.getElementById('sort-dropdown').classList.add('hidden');
+                                    }}
+                                    className="block px-4 py-3 text-left w-full hover:bg-emerald-50 transition-colors font-medium text-gray-700"
+                                >
+                                    Title {sortConfig.key === 'title' && (
+                                        <span className="text-emerald-600 float-right">
+                                            {sortConfig.direction === 'ascending' ? 'A-Z' : 'Z-A'}
+                                        </span>
+                                    )}
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    onClick={() => {
+                                        requestSort('category');
+                                        document.getElementById('sort-dropdown').classList.add('hidden');
+                                    }}
+                                    className="block px-4 py-3 text-left w-full hover:bg-emerald-50 transition-colors font-medium text-gray-700"
+                                >
+                                    Category {sortConfig.key === 'category' && (
+                                        <span className="text-emerald-600 float-right">
+                                            {sortConfig.direction === 'ascending' ? 'A-Z' : 'Z-A'}
+                                        </span>
+                                    )}
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    onClick={() => {
+                                        requestSort('difficulty');
+                                        document.getElementById('sort-dropdown').classList.add('hidden');
+                                    }}
+                                    className="block px-4 py-3 text-left w-full hover:bg-emerald-50 transition-colors font-medium text-gray-700"
+                                >
+                                    Difficulty {sortConfig.key === 'difficulty' && (
+                                        <span className="text-emerald-600 float-right">
+                                            {sortConfig.direction === 'ascending' ? 'Easy first' : 'Hard first'}
+                                        </span>
+                                    )}
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            </motion.div>
 
             {/* Filter Panel */}
             <AnimatePresence>
                 {showFilters && (
                     <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className='mb-8 overflow-hidden'
+                        variants={filterPanelVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="hidden"
+                        className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
                     >
-                        <div className='bg-base-200 p-6 rounded-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+                        <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label className='label'>
-                                    <span className='label-text'>Category</span>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                    Category
                                 </label>
-                                <select
-                                    name="category"
-                                    value={filters.category}
-                                    onChange={handleFilterChange}
-                                    className='select select-bordered w-full'
-                                >
-                                    <option value="">All Categories</option>
-                                    {categories.map(category => (
-                                        <option key={category} value={category}>{category}</option>
-                                    ))}
-                                </select>
+                                <div className="relative">
+                                    <select
+                                        name="category"
+                                        value={filters.category}
+                                        onChange={handleFilterChange}
+                                        className="block w-full pl-4 pr-10 py-3 text-base border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent rounded-xl appearance-none bg-white"
+                                    >
+                                        <option value="">All Categories</option>
+                                        {categories.map(category => (
+                                            <option key={category} value={category}>{category}</option>
+                                        ))}
+                                    </select>
+                                    <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                        <svg className="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
 
                             <div>
-                                <label className='label'>
-                                    <span className='label-text'>Difficulty</span>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                    Difficulty Level
                                 </label>
-                                <select
-                                    name="difficulty"
-                                    value={filters.difficulty}
-                                    onChange={handleFilterChange}
-                                    className='select select-bordered w-full'
-                                >
-                                    <option value="">All Levels</option>
-                                    {difficulties.map(level => (
-                                        <option key={level} value={level}>{level}</option>
-                                    ))}
-                                </select>
+                                <div className="relative">
+                                    <select
+                                        name="difficulty"
+                                        value={filters.difficulty}
+                                        onChange={handleFilterChange}
+                                        className="block w-full pl-4 pr-10 py-3 text-base border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent rounded-xl appearance-none bg-white"
+                                    >
+                                        <option value="">All Difficulty Levels</option>
+                                        {difficulties.map(level => (
+                                            <option key={level} value={level}>{level}</option>
+                                        ))}
+                                    </select>
+                                    <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                        <svg className="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </motion.div>
@@ -168,73 +306,93 @@ const BrowseTips = () => {
             </AnimatePresence>
 
             {/* Results Count */}
-            <div className='mb-6'>
-                <p className='text-sm text-gray-500'>
-                    Showing {filteredTips.length} of {tipsData.length} tips
+            <motion.div
+                className="mb-8 text-center sm:text-left"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+            >
+                <p className="text-gray-500">
+                    Showing <span className="font-semibold text-emerald-600">{filteredTips.length}</span> of <span className="font-semibold">{tipsData.length}</span> premium gardening tips
                 </p>
-            </div>
+            </motion.div>
 
             {/* Tips Grid */}
             {filteredTips.length === 0 ? (
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className='text-center py-20'
+                    className="text-center py-20 bg-white rounded-2xl shadow-sm border border-gray-100"
                 >
-                    <h3 className='text-xl font-medium text-gray-500'>No tips match your filters</h3>
+                    <h3 className="text-xl font-medium text-gray-500 mb-4">No tips match your current filters</h3>
                     <button
                         onClick={resetFilters}
-                        className='btn btn-link text-primary mt-4'
+                        className="px-6 py-3 bg-emerald-600 text-white font-medium rounded-xl shadow-md hover:shadow-lg transition-all"
                     >
-                        Clear all filters
+                        Reset all filters
                     </button>
                 </motion.div>
             ) : (
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
                     <AnimatePresence>
-                        {filteredTips.map((tip, index) => (
+                        {filteredTips.map((tip) => (
                             <motion.div
                                 key={tip._id}
                                 variants={cardVariants}
-                                initial="hidden"
-                                animate="visible"
-                                transition={{ delay: index * 0.1 }}
-                                whileHover={{ y: -5 }}
-                                className='card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow'
+                                whileHover="hover"
+                                className="group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 bg-white"
                             >
-                                <figure className='h-48 overflow-hidden'>
-                                    <img
+                                {/* Image with gradient overlay */}
+                                <div className="relative h-60 overflow-hidden">
+                                    <motion.img
                                         src={tip.imageUrl}
                                         alt={tip.title}
-                                        className='w-full h-full object-cover transition-transform hover:scale-105'
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
-                                </figure>
-                                <div className='card-body'>
-                                    <div className='flex justify-between items-start'>
-                                        <h3 className='card-title'>{tip.title}</h3>
-                                        <span className={`badge ${tip.difficulty === 'Easy' ? 'badge-success' : tip.difficulty === 'Medium' ? 'badge-warning' : 'badge-error'}`}>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+
+                                    {/* Difficulty badge */}
+                                    <div className="absolute top-4 right-4">
+                                        <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold text-white bg-gradient-to-r ${getDifficultyColor(tip.difficulty)} shadow-md`}>
                                             {tip.difficulty}
                                         </span>
                                     </div>
-                                    <div className='flex justify-between items-center mt-2'>
-                                        <span className='badge badge-outline'>{tip.category}</span>
-                                        <div className='flex items-center gap-1 text-yellow-500'>
-                                            {/* Rating stars would go here */}
-                                        </div>
-                                    </div>
-                                    <div className='card-actions justify-end mt-4'>
+                                </div>
+
+                                {/* Card content */}
+                                <div className="p-6">
+                                    {/* Category */}
+                                    <span className="inline-block mb-2 text-xs font-semibold tracking-wider text-emerald-600 uppercase">
+                                        {tip.category}
+                                    </span>
+
+                                    {/* Title */}
+                                    <h3 className="mb-3 text-xl font-semibold text-gray-900 leading-snug">
+                                        {tip.title}
+                                    </h3>
+
+                                    {/* Action button */}
+                                    <div className="mt-6">
                                         <Link
                                             to={`/tipsDetails/${tip._id}`}
-                                            className='btn btn-primary btn-sm'
+                                            className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-emerald-600 bg-white border border-emerald-200 rounded-lg hover:bg-emerald-50 hover:text-emerald-700 transition-all duration-200 shadow-sm hover:shadow-md"
                                         >
                                             View Details
+                                            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                            </svg>
                                         </Link>
                                     </div>
                                 </div>
                             </motion.div>
                         ))}
                     </AnimatePresence>
-                </div>
+                </motion.div>
             )}
         </div>
     );
