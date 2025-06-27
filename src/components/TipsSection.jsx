@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FaHeart, FaLeaf, FaSeedling, FaRegClock } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { fadeIn, staggerContainer, textVariant } from './extra/motion';
+import { Link } from 'react-router';
 // import { staggerContainer, fadeIn, textVariant } from '../utils/motion'; 
 const TipsSection = () => {
     const [tips, setTips] = useState([]);
@@ -148,12 +149,14 @@ const TipsSection = () => {
                                 whileHover={{ scale: 1.05 }}
                                 className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2"
                             >
-                                <button className="bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-6 rounded-full shadow-lg transition-all duration-300 flex items-center">
-                                    Read More
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg>
-                                </button>
+                                <Link to={`/tipsDetails/${tip._id}`}>
+                                    <button className="bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-6 rounded-full shadow-lg transition-all duration-300 flex items-center">
+                                        Read More
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                        </svg>
+                                    </button>
+                                </Link>
                             </motion.div>
                         </div>
                     </motion.div>

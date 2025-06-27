@@ -1,68 +1,66 @@
 import React from 'react';
 import CountUp from 'react-countup';
 import { motion } from 'framer-motion';
+import { RiPlantFill } from 'react-icons/ri';
+import { GiGardeningShears, GiAppleSeeds } from 'react-icons/gi';
+import { FcCustomerSupport } from 'react-icons/fc';
 
-
-const statCards = [
+const stats = [
     {
-        icon: <RiPlantFill size={30} />,
-        color: 'bg-blue-400',
-        textColor: 'text-blue-400',
-        end: 300,
-        title: 'Plants Planted',
-        delay: 0.1
+        icon: <RiPlantFill className="text-white" size={30} />,
+        bgColor: 'bg-blue-500',
+        textColor: 'text-blue-500',
+        endValue: 300,
+        label: 'Plants Planted',
+        delay: 0.2
     },
     {
-        icon: <GiGardeningShears size={30} />,
-        color: 'bg-yellow-400',
+        icon: <GiGardeningShears className="text-white" size={30} />,
+        bgColor: 'bg-yellow-500',
         textColor: 'text-yellow-500',
-        end: 150,
-        title: 'Gardens Maintained',
-        delay: 0.3
+        endValue: 150,
+        label: 'Gardens Maintained',
+        delay: 0.4
     },
     {
-        icon: <GiAppleSeeds size={25} />,
-        color: 'bg-green-400',
-        textColor: 'text-green-600',
-        end: 500,
-        title: 'Seeds Sown',
-        delay: 0.5
+        icon: <GiAppleSeeds className="text-white" size={25} />,
+        bgColor: 'bg-green-500',
+        textColor: 'text-green-500',
+        endValue: 500,
+        label: 'Seeds Sown',
+        delay: 0.6
     },
     {
-        icon: <FcCustomerSupport size={35} />,
-        color: 'bg-gray-300',
+        icon: <FcCustomerSupport className="text-white" size={35} />,
+        bgColor: 'bg-gray-400',
         textColor: 'text-gray-600',
-        end: 200,
-        title: 'Happy Customers',
-        delay: 0.7
+        endValue: 200,
+        label: 'Happy Customers',
+        delay: 0.8
     }
 ];
 
-const cardVariants = {
-    offscreen: {
-        y: 50,
-        opacity: 0
-    },
-    onscreen: {
-        y: 0,
+const statCardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
         opacity: 1,
+        y: 0,
         transition: {
-            type: "spring",
-            bounce: 0.4,
-            duration: 0.8
+            duration: 0.6,
+            ease: "easeOut"
         }
     }
 };
 
 const Additional1 = () => {
     return (
-        <div className='container mx-auto py-16 px-4'>
+        <div className="container mx-auto py-16 px-4">
             <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className='text-center text-4xl md:text-5xl font-bold text-emerald-800 mb-4'
+                className="text-center text-2xl md:text-3xl font-bold text-emerald-800 mb-4"
             >
                 Our Growing Impact
             </motion.h2>
@@ -72,42 +70,45 @@ const Additional1 = () => {
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
                 viewport={{ once: true }}
-                className="text-center text-lg text-emerald-600 max-w-2xl mx-auto mb-12"
+                className="text-center text-sm text-emerald-600 max-w-2xl mx-auto mb-12"
             >
-                Numbers that showcase our gardening community's achievements
+                Numbers that showcase our gardening achievements
             </motion.p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                {statCards.map((stat, index) => (
+                {stats.map((stat, index) => (
                     <motion.div
                         key={index}
-                        initial="offscreen"
-                        whileInView="onscreen"
+                        initial="hidden"
+                        whileInView="visible"
                         viewport={{ once: true, amount: 0.2 }}
-                        variants={cardVariants}
-                        custom={index}
+                        variants={statCardVariants}
+                        transition={{ delay: stat.delay }}
                         className="flex justify-center"
                     >
                         <motion.div
-                            whileHover={{ y: -10 }}
-                            className="card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl border border-gray-100 w-full max-w-xs"
+                            whileHover={{
+                                y: -10,
+                                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)"
+                            }}
+                            className="w-full max-w-xs bg-white rounded-xl overflow-hidden shadow-md border border-gray-100"
                         >
-                            <div className="card-body flex flex-col items-center p-6">
+                            <div className="p-6 flex flex-col items-center">
                                 <motion.div
-                                    whileHover={{ scale: 1.1, rotate: 5 }}
-                                    className={`rounded-full ${stat.color} text-white w-20 h-20 flex justify-center items-center mb-4`}
+                                    whileHover={{ scale: 1.1 }}
+                                    className={`${stat.bgColor} rounded-full w-20 h-20 flex items-center justify-center mb-6`}
                                 >
                                     {stat.icon}
                                 </motion.div>
 
-                                <motion.h2
-                                    className={`text-5xl font-bold ${stat.textColor} mb-2`}
+                                <motion.h3
+                                    className={`${stat.textColor} text-5xl font-bold mb-2`}
                                 >
                                     <CountUp
                                         start={0}
-                                        end={stat.end}
-                                        delay={0.5}
+                                        end={stat.endValue}
                                         duration={3}
+                                        delay={0.5}
                                         separator=","
                                     >
                                         {({ countUpRef }) => (
@@ -115,21 +116,19 @@ const Additional1 = () => {
                                         )}
                                     </CountUp>
                                     <span>+</span>
-                                </motion.h2>
+                                </motion.h3>
 
-                                <motion.p
-                                    className="font-semibold text-lg text-emerald-600 opacity-80"
-                                >
-                                    {stat.title}
-                                </motion.p>
+                                <p className="text-lg font-semibold text-emerald-600 opacity-80">
+                                    {stat.label}
+                                </p>
 
                                 {/* Animated progress bar */}
                                 <motion.div
                                     initial={{ width: 0 }}
-                                    whileInView={{ width: '80%' }}
-                                    transition={{ delay: 0.8, duration: 2 }}
+                                    whileInView={{ width: "80%" }}
+                                    transition={{ duration: 2, delay: 0.8 }}
                                     viewport={{ once: true }}
-                                    className={`h-1 ${stat.color} bg-opacity-30 mt-4 rounded-full`}
+                                    className={`h-1.5 ${stat.bgColor} bg-opacity-30 rounded-full mt-4`}
                                 />
                             </div>
                         </motion.div>
