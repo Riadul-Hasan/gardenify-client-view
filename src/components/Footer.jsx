@@ -1,16 +1,24 @@
 import React from 'react';
-
+import { Link } from 'react-router';
+import Logo from "../assets/logo-transparent.png"
 const Footer = () => {
     return (
         <footer className="footer transition-all duration-500  sm:footer-horizontal bg-cyan-800 text-white p-10">
 
-            <nav>
-                <h6 className="footer-title">Services</h6>
-                <a className="link link-hover">Soil Testing</a>
-                <a className="link link-hover">Plant Care Guides</a>
-                <a className="link link-hover">Seasonal Planting</a>
+            <div className='flex flex-row-reverse gap-4'>
+                <nav className='flex flex-col gap-2'>
+                    <h6 className="footer-title">Lets Visit</h6>
+                    <Link to="/explore">Explore Gardeners</Link>
+                    <Link to="/browseTips">All Tips</Link>
+                    <Link to="/dashboard">Dashboard</Link>
 
-            </nav>
+
+                </nav>
+
+                <div className='rounded-full '>
+                    <img className='w-16 h-16 object-contain' src={Logo} alt="logo" />
+                </div>
+            </div>
             <nav>
                 <h6 className="footer-title">Contact Us</h6>
                 <a className="link link-hover">📧 riadb368@gmail.com</a>
